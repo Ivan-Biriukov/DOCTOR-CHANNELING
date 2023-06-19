@@ -20,7 +20,7 @@ class ReusableUIButton: UIButton {
     init(style: ButtonStyle, title: String?) {
         self.style = style
         self.title = title
-        super.init()
+        super.init(frame: .zero)
     }
     
     required init?(coder: NSCoder) {

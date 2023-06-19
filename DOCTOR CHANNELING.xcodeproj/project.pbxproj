@@ -12,6 +12,8 @@
 		578E37A32A40ABCF00BCD6C1 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A22A40ABCF00BCD6C1 /* CustomNavigationController.swift */; };
 		578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */; };
 		578E37A92A41052700BCD6C1 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 578E37A82A41052600BCD6C1 /* MontserratAlternates-Bold.ttf */; };
+		578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37AA2A410D3D00BCD6C1 /* UITextField+ Extension.swift */; };
+		578E37AD2A41124700BCD6C1 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37AC2A41124600BCD6C1 /* ReusableTextField.swift */; };
 		57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778322A3FD29200FE43E4 /* AppDelegate.swift */; };
 		57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778342A3FD29200FE43E4 /* SceneDelegate.swift */; };
 		57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */; };
@@ -31,6 +33,8 @@
 		578E37A22A40ABCF00BCD6C1 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableUIButton.swift; sourceTree = "<group>"; };
 		578E37A82A41052600BCD6C1 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
+		578E37AA2A410D3D00BCD6C1 /* UITextField+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ Extension.swift"; sourceTree = "<group>"; };
+		578E37AC2A41124600BCD6C1 /* ReusableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableTextField.swift; sourceTree = "<group>"; };
 		57A7782F2A3FD29200FE43E4 /* DOCTOR CHANNELING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DOCTOR CHANNELING.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A778322A3FD29200FE43E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A778342A3FD29200FE43E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				57A7783D2A3FD29900FE43E4 /* LaunchScreen.storyboard */,
 				578E37A22A40ABCF00BCD6C1 /* CustomNavigationController.swift */,
 				578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */,
+				578E37AC2A41124600BCD6C1 /* ReusableTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				57A7784F2A3FD4E100FE43E4 /* UIFont+ Extension.swift */,
 				57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */,
 				578E37A02A40746400BCD6C1 /* UIViewController+ Extension.swift */,
+				578E37AA2A410D3D00BCD6C1 /* UITextField+ Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 				578E37A32A40ABCF00BCD6C1 /* CustomNavigationController.swift in Sources */,
 				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,
+				578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */,
 				57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */,
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,
+				578E37AD2A41124700BCD6C1 /* ReusableTextField.swift in Sources */,
 				578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
