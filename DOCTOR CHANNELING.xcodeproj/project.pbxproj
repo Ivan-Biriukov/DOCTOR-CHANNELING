@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E379E2A406DFA00BCD6C1 /* Constants.swift */; };
 		57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778322A3FD29200FE43E4 /* AppDelegate.swift */; };
 		57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778342A3FD29200FE43E4 /* SceneDelegate.swift */; };
 		57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		578E379E2A406DFA00BCD6C1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57A7782F2A3FD29200FE43E4 /* DOCTOR CHANNELING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DOCTOR CHANNELING.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A778322A3FD29200FE43E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A778342A3FD29200FE43E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		578E379B2A406D7200BCD6C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		578E379C2A406DAA00BCD6C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				57A7783D2A3FD29900FE43E4 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		578E379D2A406DB500BCD6C1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		57A778262A3FD29200FE43E4 = {
 			isa = PBXGroup;
 			children = (
@@ -66,14 +91,13 @@
 		57A778312A3FD29200FE43E4 /* DOCTOR CHANNELING */ = {
 			isa = PBXGroup;
 			children = (
+				578E379B2A406D7200BCD6C1 /* Model */,
+				578E379C2A406DAA00BCD6C1 /* View */,
+				578E379D2A406DB500BCD6C1 /* Controller */,
 				57A7784E2A3FD4CA00FE43E4 /* Extensions */,
 				57A778462A3FD45900FE43E4 /* Supporting files */,
-				57A778322A3FD29200FE43E4 /* AppDelegate.swift */,
-				57A778342A3FD29200FE43E4 /* SceneDelegate.swift */,
-				57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */,
-				57A7783B2A3FD29900FE43E4 /* Assets.xcassets */,
-				57A7783D2A3FD29900FE43E4 /* LaunchScreen.storyboard */,
 				57A778402A3FD29900FE43E4 /* Info.plist */,
+				578E379E2A406DFA00BCD6C1 /* Constants.swift */,
 			);
 			path = "DOCTOR CHANNELING";
 			sourceTree = "<group>";
@@ -81,6 +105,9 @@
 		57A778462A3FD45900FE43E4 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				57A7783B2A3FD29900FE43E4 /* Assets.xcassets */,
+				57A778342A3FD29200FE43E4 /* SceneDelegate.swift */,
+				57A778322A3FD29200FE43E4 /* AppDelegate.swift */,
 				57A778472A3FD46300FE43E4 /* Fonts */,
 			);
 			path = "Supporting files";
@@ -185,6 +212,7 @@
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,
 				57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */,
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,
+				578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
