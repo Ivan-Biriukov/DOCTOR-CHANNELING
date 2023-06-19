@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E379E2A406DFA00BCD6C1 /* Constants.swift */; };
+		578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A02A40746400BCD6C1 /* UIViewController+ Extension.swift */; };
+		578E37A32A40ABCF00BCD6C1 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A22A40ABCF00BCD6C1 /* CustomNavigationController.swift */; };
+		578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */; };
+		578E37A92A41052700BCD6C1 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 578E37A82A41052600BCD6C1 /* MontserratAlternates-Bold.ttf */; };
 		57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778322A3FD29200FE43E4 /* AppDelegate.swift */; };
 		57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778342A3FD29200FE43E4 /* SceneDelegate.swift */; };
 		57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */; };
@@ -23,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		578E379E2A406DFA00BCD6C1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		578E37A02A40746400BCD6C1 /* UIViewController+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ Extension.swift"; sourceTree = "<group>"; };
+		578E37A22A40ABCF00BCD6C1 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableUIButton.swift; sourceTree = "<group>"; };
+		578E37A82A41052600BCD6C1 /* MontserratAlternates-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.ttf"; sourceTree = "<group>"; };
 		57A7782F2A3FD29200FE43E4 /* DOCTOR CHANNELING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DOCTOR CHANNELING.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A778322A3FD29200FE43E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57A778342A3FD29200FE43E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				57A7783D2A3FD29900FE43E4 /* LaunchScreen.storyboard */,
+				578E37A22A40ABCF00BCD6C1 /* CustomNavigationController.swift */,
+				578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +126,7 @@
 		57A778472A3FD46300FE43E4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				578E37A82A41052600BCD6C1 /* MontserratAlternates-Bold.ttf */,
 				57A778512A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf */,
 				57A7784C2A3FD48500FE43E4 /* AveriaSansLibre-Regular.ttf */,
 				57A7784A2A3FD47A00FE43E4 /* AveriaSansLibre-Light.ttf */,
@@ -129,6 +140,7 @@
 			children = (
 				57A7784F2A3FD4E100FE43E4 /* UIFont+ Extension.swift */,
 				57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */,
+				578E37A02A40746400BCD6C1 /* UIViewController+ Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +208,7 @@
 				57A7784B2A3FD47A00FE43E4 /* AveriaSansLibre-Light.ttf in Resources */,
 				57A778522A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf in Resources */,
 				57A778492A3FD46F00FE43E4 /* AveriaSansLibre-Bold.ttf in Resources */,
+				578E37A92A41052700BCD6C1 /* MontserratAlternates-Bold.ttf in Resources */,
 				57A7783C2A3FD29900FE43E4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +222,9 @@
 			files = (
 				57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */,
 				57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */,
+				578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */,
+				578E37A32A40ABCF00BCD6C1 /* CustomNavigationController.swift in Sources */,
+				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,
 				57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */,
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,

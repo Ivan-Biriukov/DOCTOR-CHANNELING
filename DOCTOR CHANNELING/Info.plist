@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MontserratAlternates-Bold.ttf</string>
 		<string>MontserratAlternates-SemiBold.ttf</string>
 		<string>AveriaSansLibre-Regular.ttf</string>
 		<string>AveriaSansLibre-Light.ttf</string>

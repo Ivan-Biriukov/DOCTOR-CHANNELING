@@ -1,25 +1,67 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AveriaSansLibre-Bold.ttf">
+            <string>AveriaSansLibre-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4Kv-Y1-FXb">
+                                <rect key="frame" x="16" y="120.99999999999997" width="361" height="288.33333333333326"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="288.32999999999998" id="ZKu-lw-1u0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D O C T O R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBQ-0E-Zc5">
+                                <rect key="frame" x="90.666666666666686" y="449.33333333333331" width="212" height="50"/>
+                                <fontDescription key="fontDescription" name="AveriaSansLibre-Bold" family="Averia Sans Libre" pointSize="40"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.5490196078431373" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C H A N N E L I N G" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-P2-LSn">
+                                <rect key="frame" x="66" y="509.33333333333326" width="261" height="38"/>
+                                <fontDescription key="fontDescription" name="AveriaSansLibre-Bold" family="Averia Sans Libre" pointSize="30"/>
+                                <color key="textColor" red="0.26274509800000001" green="0.54901960780000003" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vBQ-0E-Zc5" firstAttribute="top" secondItem="4Kv-Y1-FXb" secondAttribute="bottom" constant="40" id="9v9-Nv-rmi"/>
+                            <constraint firstItem="FPU-P2-LSn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ACb-0e-SYh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Kv-Y1-FXb" secondAttribute="trailing" constant="16" id="O9d-9r-rY0"/>
+                            <constraint firstItem="FPU-P2-LSn" firstAttribute="top" secondItem="vBQ-0E-Zc5" secondAttribute="bottom" constant="10" id="R1s-r8-k7q"/>
+                            <constraint firstItem="4Kv-Y1-FXb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="ZgN-p4-EdM"/>
+                            <constraint firstItem="vBQ-0E-Zc5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="adF-3V-IxS"/>
+                            <constraint firstItem="4Kv-Y1-FXb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bpu-9w-iQW"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="appIcon" width="430" height="289"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

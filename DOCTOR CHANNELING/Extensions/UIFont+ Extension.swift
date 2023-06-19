@@ -74,9 +74,13 @@ extension UIFont {
         return UIFont(name: "AveriaSansLibre-Regular", size: 28)
     }
     
-    // MARK: - MontserratAlternates-SemiBold
+    // MARK: - MontserratAlternates
     
     static func montserratSemiBold16() -> UIFont?{
         return UIFont(name: "AveriaSansLibre-Regular", size: 16)
+    }
+    
+    static func montserratBold16() -> UIFont?{
+        return UIFont(name: "MontserratAlternates-Bold", size: 16)
     }
 }
