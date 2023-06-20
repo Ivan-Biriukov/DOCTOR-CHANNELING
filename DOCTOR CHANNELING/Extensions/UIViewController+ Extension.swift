@@ -8,6 +8,7 @@ extension UIViewController {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.backgroundColor = .clear
+        navBarAppearance.shadowColor = .clear
         navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textLightBlue, NSAttributedString.Key.font: UIFont.averiaBold26() ?? UIFont.systemFont(ofSize: 26)]
         self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = true
         self.title = text
@@ -19,6 +20,11 @@ extension UIViewController {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.backgroundColor = .clear
+        navBarAppearance.shadowColor = .clear
+
+        let accountButton = UIBarButtonItem(image: UIImage(named: K.Avatars.userAvatarIcon), style: .done, target: self, action: nil)
+        self.navigationController?.navigationItem.backBarButtonItem = accountButton
+        
         
         let avatarIMG = UIImageView(image: img)
         avatarIMG.heightAnchor.constraint(equalToConstant: 70).isActive = true
@@ -38,7 +44,7 @@ extension UIViewController {
         titleView.alignment = .center
         titleView.tintColor = .black
         self.navigationController?.navigationItem.titleView = titleView
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = true
+      //  self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = true
         
         self.navigationController?.navigationItem.rightBarButtonItem = btn
         self.navigationController?.navigationBar.standardAppearance = navBarAppearance
@@ -49,7 +55,8 @@ extension UIViewController {
     func mainInterfaceNavBar(titleText text: String, isThemeLight: Bool) {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        
+        navBarAppearance.shadowColor = .clear
+
         if isThemeLight{
             navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textLightBlue, NSAttributedString.Key.font: UIFont.averiaBold26() ?? UIFont.systemFont(ofSize: 26)]
         } else {
@@ -71,7 +78,8 @@ extension UIViewController {
     func chatVCNavBar(titleText text: String, callButton: UIButton, videoButton: UIButton) {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
-        
+        navBarAppearance.shadowColor = .clear
+
         navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textLightBlue, NSAttributedString.Key.font: UIFont.averiaBold26() ?? UIFont.systemFont(ofSize: 26)]
         
         self.title = text
@@ -93,8 +101,6 @@ extension UIViewController {
         self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
     
-    
-    
     func presentNewVC(vcToPresent vc: UIViewController) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             let nextVC = vc
@@ -102,7 +108,6 @@ extension UIViewController {
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
-    
     
     // MARK: - Other stuff
     

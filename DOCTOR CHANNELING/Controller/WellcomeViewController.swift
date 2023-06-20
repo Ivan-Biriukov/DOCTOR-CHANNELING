@@ -142,7 +142,7 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
-        view.backgroundColor = .lightBackgroundColor
+        view.backgroundColor = .systemBackground
         onboardingNavBar(titleText: "Welcome")
         self.navigationItem.setHidesBackButton(true, animated: true)
         addButtonsTargets()
@@ -163,7 +163,9 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     }
     
     @objc func signInButtonTaped() {
-        print("signInButtonTaped")
+        let mainNavController = UINavigationController(rootViewController: HomeViewController())
+        mainNavController.modalPresentationStyle = .fullScreen
+        present(mainNavController, animated: true)
     }
     
     @objc func facebookButtonTaped() {

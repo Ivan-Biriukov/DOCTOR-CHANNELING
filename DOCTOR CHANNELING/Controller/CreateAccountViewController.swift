@@ -1,6 +1,6 @@
 import UIKit
 
-class CreateAccountViewController: UIViewController, UITextFieldDelegate {
+class CreateAccountViewController: UIViewController {
 
     // MARK: - UI Elements
     
@@ -73,7 +73,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightBackgroundColor
+        view.backgroundColor = .systemBackground
         self.navigationItem.setHidesBackButton(true, animated: true)
         addSubviews()
         setupConstraints()
@@ -87,7 +87,9 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Custom Buttons Methods
     
     @objc func signUpButtonTaped() {
-        
+        let mainNavController = UINavigationController(rootViewController: HomeViewController())
+        mainNavController.modalPresentationStyle = .fullScreen
+        present(mainNavController, animated: true)
     }
     
     @objc func facebookButtonTaped() {
@@ -162,6 +164,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension CreateAccountViewController: FieldeyeButtonDelegate {
+// MARK: - Delegates Methods
+
+extension CreateAccountViewController: FieldeyeButtonDelegate , UITextFieldDelegate {
+    
     func eyeButtonTaped() {}
+    
 }
