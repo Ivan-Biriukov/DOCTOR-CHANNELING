@@ -144,7 +144,8 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
         addSubviews()
         view.backgroundColor = .lightBackgroundColor
         onboardingNavBar(titleText: "Welcome")
-    
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        addButtonsTargets()
         setupConstraints()
         configureTextFields()
         hideKeyboardWhenTappedAround()
@@ -162,19 +163,20 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     }
     
     @objc func signInButtonTaped() {
-        
+        print("signInButtonTaped")
     }
     
     @objc func facebookButtonTaped() {
-        
+        print("facebookButtonTaped")
     }
     
     @objc func googleButtonTaped() {
-        
+        print("googleButtonTaped")
     }
     
     @objc func signUpButtonTaped() {
-        
+        print("signUpButtonTaped")
+        presentNewVC(vcToPresent: CreateAccountViewController())
     }
 
     // MARK: - Configure UI
