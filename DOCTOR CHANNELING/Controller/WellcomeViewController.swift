@@ -1,8 +1,6 @@
 import UIKit
 
-class WellcomeViewController: UIViewController {
-    
-    private var isPasswordHidden : Bool = true
+class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeButtonDelegate {
     
     // MARK: - UI Elements
     
@@ -19,7 +17,7 @@ class WellcomeViewController: UIViewController {
     private let descLabel : UILabel = {
         let lb = UILabel()
         lb.font = .averiaRegular18()
-        lb.text = "Please enter your account name and password, for log in"
+        lb.text = "Please enter your account name and password, for log in."
         lb.textColor = .black
         lb.textAlignment = .left
         lb.numberOfLines = 0
@@ -36,53 +34,19 @@ class WellcomeViewController: UIViewController {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    
-    private let emailTextField : UITextField = {
-        let field = UITextField()
-        field.backgroundColor = .lightGrayBackgroundColor
-        field.keyboardType = .emailAddress
-        field.attributedPlaceholder = NSAttributedString (
-                    string: "Enter Your Email",
-                    attributes: [
-                        NSAttributedString.Key.foregroundColor: UIColor.textUnavalibleGray,
-                        NSAttributedString.Key.font: UIFont.averiaRegular18() ?? UIFont.systemFont(ofSize: 18)
-                    ]
-         )
-        field.font = .averiaRegular18()
-        field.textColor = .black
-        field.textAlignment = .left
-        field.tintColor = .black
-        field.clearButtonMode = .whileEditing
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
-    }()
-    
+
     private lazy var fieldEyeButton : UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "eye"), for: .normal)
         btn.addTarget(self, action: #selector(eyeButtonTaped), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 30).isActive = true
         return btn
     }()
     
-    private let passwordTextField : UITextField = {
-        let field = UITextField()
-        field.backgroundColor = .lightGrayBackgroundColor
-        field.keyboardType = .default
-        field.attributedPlaceholder = NSAttributedString (
-                    string: "Enter Your Password",
-                    attributes: [
-                        NSAttributedString.Key.foregroundColor: UIColor.textUnavalibleGray,
-                        NSAttributedString.Key.font: UIFont.averiaRegular18() ?? UIFont.systemFont(ofSize: 18)
-                    ]
-         )
-        field.font = .averiaRegular18()
-        field.textColor = .black
-        field.textAlignment = .left
-        field.tintColor = .textLightBlue
-    
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
-    }()
+    private let emailTextField = ReusableTextField(style: .email)
+    private let passwordTextField = ReusableTextField(style: .password)
     
     private let passwordLabel : UILabel = {
         let lb = UILabel()
@@ -94,7 +58,18 @@ class WellcomeViewController: UIViewController {
         return lb
     }()
     
-    private let recoverPasswordButton = ReusableUIButton(style: .forgotPasswrod, title: nil)
+    private lazy var recoverPasswordButton : UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Forget Password", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .clear
+        btn.titleLabel?.font = .averiaRegular18()
+        btn.titleLabel?.textAlignment = .center
+        btn.addTarget(self, action: #selector(recoverPasswordTaped), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+
     private let signInButton = ReusableUIButton(style: .mainBottomStyle, title: "Sign In")
     
     private let orLabel : UILabel = {
@@ -122,51 +97,146 @@ class WellcomeViewController: UIViewController {
     
     private let bottomSignUpButton = ReusableUIButton(style: .singInOrSingUp, title: "Sign Up")
     
+    private let lastLineStack : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private let topLabelStack : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .leading
+        stack.spacing = 25
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private let fieldsStack : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = 22
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private let socialButtonsStack : UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 30
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    
     
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addSubviews()
         view.backgroundColor = .lightBackgroundColor
         onboardingNavBar(titleText: "Welcome")
-        
+    
+        setupConstraints()
         configureTextFields()
         hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Custom Buttons Methods
     
-    @objc func eyeButtonTaped() {
-        isPasswordHidden = !isPasswordHidden
-        
-        if isPasswordHidden {
-            fieldEyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
-            passwordTextField.isSecureTextEntry = true
-        } else {
-            fieldEyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-            passwordTextField.isSecureTextEntry = false
+    @objc func eyeButtonTaped() {}
+    
+    @objc func recoverPasswordTaped() {
+        recoverPasswordButton.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.recoverPasswordButton.alpha = 1.0
         }
+    }
+    
+    @objc func signInButtonTaped() {
+        
+    }
+    
+    @objc func facebookButtonTaped() {
+        
+    }
+    
+    @objc func googleButtonTaped() {
+        
+    }
+    
+    @objc func signUpButtonTaped() {
+        
     }
 
     // MARK: - Configure UI
 
     private func addSubviews() {
-        
+        view.addSubview(topLabelStack)
+        topLabelStack.addArrangedSubview(mainLabel)
+        topLabelStack.addArrangedSubview(descLabel)
+        view.addSubview(fieldsStack)
+        fieldsStack.addArrangedSubview(emailLabel)
+        fieldsStack.addArrangedSubview(emailTextField)
+        fieldsStack.addArrangedSubview(passwordLabel)
+        fieldsStack.addArrangedSubview(passwordTextField)
+        view.addSubview(recoverPasswordButton)
+        view.addSubview(signInButton)
+        view.addSubview(orLabel)
+        view.addSubview(socialButtonsStack)
+        socialButtonsStack.addArrangedSubview(facebookButton)
+        socialButtonsStack.addArrangedSubview(googleButton)
+        view.addSubview(lastLineStack)
+        lastLineStack.addArrangedSubview(bottomLabel)
+        lastLineStack.addArrangedSubview(bottomSignUpButton)
     }
     
     private func configureTextFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        passwordTextField.rightView = fieldEyeButton
-        passwordTextField.clearButtonMode = .never
-        passwordTextField.rightViewMode = .always
-        passwordTextField.rightView?.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        passwordTextField.buttonDelegate = self
     }
-}
-
-
-// MARK: - UITextField Delegates
-
-extension WellcomeViewController: UITextFieldDelegate {
     
+    private func addButtonsTargets() {
+        signInButton.addTarget(self, action: #selector(signInButtonTaped), for: .touchUpInside)
+        facebookButton.addTarget(self, action: #selector(facebookButtonTaped), for: .touchUpInside)
+        googleButton.addTarget(self, action: #selector(googleButtonTaped), for: .touchUpInside)
+        bottomSignUpButton.addTarget(self, action: #selector(signUpButtonTaped), for: .touchUpInside)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            topLabelStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            topLabelStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 27),
+            topLabelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -27),
+            
+            fieldsStack.topAnchor.constraint(equalTo: topLabelStack.bottomAnchor, constant: 62),
+            fieldsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 27),
+            fieldsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -27),
+
+            recoverPasswordButton.topAnchor.constraint(equalTo: fieldsStack.bottomAnchor, constant: 16),
+            recoverPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -27),
+
+            signInButton .topAnchor.constraint(equalTo: recoverPasswordButton.bottomAnchor, constant: 35),
+            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 27),
+            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -27),
+
+            orLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            orLabel.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 19),
+
+            socialButtonsStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            socialButtonsStack.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 19),
+
+            lastLineStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            lastLineStack.topAnchor.constraint(equalTo: socialButtonsStack.bottomAnchor, constant: 13),
+        ])
+    }
 }

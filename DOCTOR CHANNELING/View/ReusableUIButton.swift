@@ -7,7 +7,6 @@ class ReusableUIButton: UIButton {
         case google
         case facebook
         case mainBottomStyle
-        case forgotPasswrod
         case singInOrSingUp
         case book
         case send
@@ -21,6 +20,7 @@ class ReusableUIButton: UIButton {
         self.style = style
         self.title = title
         super.init(frame: .zero)
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -46,17 +46,10 @@ class ReusableUIButton: UIButton {
             widthAnchor.constraint(equalToConstant: 60).isActive = true
             layer.cornerRadius = 50
             
-        case .forgotPasswrod:
-            setTitle("Forget Password", for: .normal)
-            backgroundColor = .clear
-            titleLabel?.font = .averiaRegular18()
-            titleLabel?.textColor = .black
-            titleLabel?.textAlignment = .right
-            
         case .mainBottomStyle:
             setTitle(title, for: .normal)
+            setTitleColor(.white, for: .normal)
             backgroundColor = .textLightBlue
-            titleLabel?.textColor = .white
             titleLabel?.textAlignment = .center
             titleLabel?.font = .averiaBold22()
             heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -66,12 +59,12 @@ class ReusableUIButton: UIButton {
             backgroundColor = .clear
             setTitle(title, for: .normal)
             titleLabel?.font = .montserratBold16()
-            titleLabel?.textColor = .textLightBlue
+            setTitleColor(.textLightBlue, for: .normal)
             
         case .book:
             setTitle("Book", for: .normal)
             backgroundColor = .textLightBlue
-            titleLabel?.textColor = .white
+            setTitleColor(.white, for: .normal)
             titleLabel?.textAlignment = .center
             titleLabel?.font = .averiaRegular16()
             heightAnchor.constraint(equalToConstant: 28.38).isActive = true
