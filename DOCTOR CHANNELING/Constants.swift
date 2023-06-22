@@ -5,6 +5,10 @@ struct K {
     
     static let appIcon : String = "appIcon"
     
+    struct CellsIds {
+        static let mainPageInfoCell : String = "infoCell"
+    }
+    
     struct Avatars {
         static let userAvatarIcon : String = "avatarIcon"
         static let firstDoctorAvatar : String = "DoctorAvatar_1"

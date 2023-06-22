@@ -10,6 +10,8 @@ extension UIColor {
     
     static let middleGrayBackgroundColor = UIColor(red: 133/256, green: 133/256, blue: 133/256, alpha: 1)
     
+    static let cellsBlueColor = UIColor(red: 67/256, green: 140/256, blue: 178/256, alpha: 1)
+    
     // MARK: - Text Colors
     
     static let textLightBlue = UIColor(red: 25/256, green: 142/256, blue: 182/256, alpha: 1)

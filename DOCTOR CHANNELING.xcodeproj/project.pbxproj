@@ -27,6 +27,10 @@
 		57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7784F2A3FD4E100FE43E4 /* UIFont+ Extension.swift */; };
 		57A778522A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57A778512A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf */; };
 		57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */; };
+		57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */; };
+		57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */; };
+		57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */; };
+		57B55ECA2A43C4C000683EEC /* SegmentedControllManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC92A43C4C000683EEC /* SegmentedControllManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		57A7784F2A3FD4E100FE43E4 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
 		57A778512A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
 		57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
+		57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionDataModel.swift; sourceTree = "<group>"; };
+		57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionModelManager.swift; sourceTree = "<group>"; };
+		57B55EC92A43C4C000683EEC /* SegmentedControllManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControllManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,8 @@
 		578E379B2A406D7200BCD6C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57B55EC82A43C4A400683EEC /* SegmentedControllManager */,
+				57B55EC52A43962900683EEC /* InfoCollectionView Models */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -75,6 +85,7 @@
 		578E379C2A406DAA00BCD6C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				57B48C5D2A4342290059E456 /* Cels */,
 				57A7783D2A3FD29900FE43E4 /* LaunchScreen.storyboard */,
 				578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */,
 				578E37AC2A41124600BCD6C1 /* ReusableTextField.swift */,
@@ -157,6 +168,47 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		57B48C5D2A4342290059E456 /* Cels */ = {
+			isa = PBXGroup;
+			children = (
+				57B48C5F2A43424C0059E456 /* CollectionViewCells */,
+				57B48C5E2A4342400059E456 /* TableViewCells */,
+			);
+			path = Cels;
+			sourceTree = "<group>";
+		};
+		57B48C5E2A4342400059E456 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		57B48C5F2A43424C0059E456 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		57B55EC52A43962900683EEC /* InfoCollectionView Models */ = {
+			isa = PBXGroup;
+			children = (
+				57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */,
+				57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */,
+			);
+			path = "InfoCollectionView Models";
+			sourceTree = "<group>";
+		};
+		57B55EC82A43C4A400683EEC /* SegmentedControllManager */ = {
+			isa = PBXGroup;
+			children = (
+				57B55EC92A43C4C000683EEC /* SegmentedControllManager.swift */,
+			);
+			path = SegmentedControllManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,7 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A528182A420792004269B4 /* CreateAccountViewController.swift in Sources */,
+				57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */,
 				57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */,
+				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,
 				57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */,
 				578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */,
 				57A5281C2A424193004269B4 /* HomeViewController.swift in Sources */,
@@ -242,8 +296,10 @@
 				57A5281A2A4208EF004269B4 /* TextFieldsLabel.swift in Sources */,
 				578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */,
 				57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */,
+				57B55ECA2A43C4C000683EEC /* SegmentedControllManager.swift in Sources */,
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,
 				578E37AD2A41124700BCD6C1 /* ReusableTextField.swift in Sources */,
+				57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */,
 				578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

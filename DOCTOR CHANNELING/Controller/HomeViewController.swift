@@ -2,6 +2,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    // MARK: - Data
+    
+    private let collectionViewManager = InfoCollectionModelManager()
+    
     // MARK: - UI Elements
     
     private let userAvatar : UIImageView = {
@@ -36,6 +40,24 @@ class HomeViewController: UIViewController {
 
     private let searchBar = ReusableTextField(style: .searchField)
     
+    private let infoCollection : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 54, height: 170)
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.heightAnchor.constraint(equalToConstant: 190).isActive = true
+        c.translatesAutoresizingMaskIntoConstraints = false
+        return c
+    }()
+    
+    private let infoCollectionSegmentControll : UISegmentedControl = {
+        let control = UISegmentedControl()
+        control.selectedSegmentTintColor = .cellsBlueColor
+        control.backgroundColor = .clear
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
+    
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -45,6 +67,9 @@ class HomeViewController: UIViewController {
         addSubviews()
         setupConstraints()
         hideKeyboardWhenTappedAround()
+        settingUpDelegates()
+        registerCells()
+        configureSegmentedControll()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,6 +94,24 @@ class HomeViewController: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(bellButton)
         view.addSubview(searchBar)
+        view.addSubview(infoCollection)
+        view.addSubview(infoCollectionSegmentControll)
+    }
+    
+    private func settingUpDelegates() {
+        searchBar.delegate = self
+        searchBar.searchDelegate = self
+        searchBar.micDelegate = self
+        infoCollection.delegate = self
+        infoCollection.dataSource = self
+    }
+    
+    private func registerCells() {
+        infoCollection.register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: K.CellsIds.mainPageInfoCell)
+    }
+    
+    private func configureSegmentedControll() {
+        infoCollectionSegmentControll.setImage(UIImage(systemName: "circle.fill"), forSegmentAt: 1)
     }
     
     private func setupConstraints() {
@@ -85,11 +128,48 @@ class HomeViewController: UIViewController {
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
         
-        
+            infoCollection.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 31.81),
+            infoCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 26.72),
+            infoCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            
+            infoCollectionSegmentControll.topAnchor.constraint(equalTo: infoCollection.bottomAnchor, constant: 19.5),
+            infoCollectionSegmentControll.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         
         ])
     }
- 
 
 }
 
+// MARK: - TextField Delegates
+
+extension HomeViewController: UITextFieldDelegate, FieldSearchButtonDelegate, FieldMicButtonDelegate {
+    
+    func searchButtonTaped() {
+        
+    }
+    
+    func micButtonTaped() {
+        
+    }
+    
+}
+
+// MARK: - CollectionView DataSource & Delegates
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return collectionViewManager.dataArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = infoCollection.dequeueReusableCell(withReuseIdentifier: K.CellsIds.mainPageInfoCell, for: indexPath) as! InfoCollectionViewCell
+        
+        let currentLastItem = collectionViewManager.dataArray[indexPath.row]
+        cell.contentData = currentLastItem
+        return cell
+    }
+    
+    
+}
