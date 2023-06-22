@@ -5,6 +5,13 @@ class HomeViewController: UIViewController {
     // MARK: - Data
     
     private let collectionViewManager = InfoCollectionModelManager()
+    private var doctorsTenCategoryes : [String] = ["dentist", "surgeon", "urologist", "neurologist", "psychiatrist", "otolaryngologist", "obstetrician", "dermatologist", "cardiologist", "endocrinologist"
+    ]
+    private let moreDoctorsCategory : [String] = [
+        "oncologist", "rheumatologist", "nephrologist", "pediatrician", "podiatrist", "ophthalmologist", "radiologist", "gynecologist", "geneticist", "physiologist", "allergist", "neurosurgeon", "hematologist", "microbiologist", "epidemiologist", "anaesthesiologist", "gastroenterologist", "immunologist", "infectious disease specialist", "intensivist", "neonatologist", "orthopedic surgeon", "parasitologist", "plastic surgeon", "pulmonologist"
+    ]
+    
+    private var categorySeeAllIndicator : Int = 0
     
     // MARK: - UI Elements
     
@@ -46,16 +53,41 @@ class HomeViewController: UIViewController {
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 54, height: 170)
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
         c.heightAnchor.constraint(equalToConstant: 190).isActive = true
+        c.showsHorizontalScrollIndicator = false
         c.translatesAutoresizingMaskIntoConstraints = false
         return c
     }()
     
-    private let infoCollectionSegmentControll : UISegmentedControl = {
-        let control = UISegmentedControl()
-        control.selectedSegmentTintColor = .cellsBlueColor
-        control.backgroundColor = .clear
+    private lazy var infoViewControll : UIPageControl = {
+        let control = UIPageControl()
+        control.currentPageIndicatorTintColor = .cellsBlueColor
+        control.pageIndicatorTintColor = .lightGrayBackgroundColor
+        control.isUserInteractionEnabled = false
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
+    }()
+    
+    private let categoriesLabel : UILabel = {
+        let lb = UILabel()
+        lb.font = .averiaRegular24()
+        lb.textColor = .black
+        lb.textAlignment = .left
+        lb.text = "Categories"
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    private lazy var categorySeeAllButton = ReusableUIButton(style: .seeAll, title: "See All")
+    
+    private let categoryesCollection : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 150, height: 80)
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        c.showsHorizontalScrollIndicator = false
+        c.translatesAutoresizingMaskIntoConstraints = false
+        return c
     }()
     
     // MARK: - LifeCycle Methods
@@ -69,7 +101,8 @@ class HomeViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         settingUpDelegates()
         registerCells()
-        configureSegmentedControll()
+        configureInfoPageControll()
+        configureButtonsActions()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +118,22 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.bellButton.alpha = 1.0
         }
+        
+    }
+    
+    @objc func categorySeeAllTaped() {
+        print("check")
+        print(categorySeeAllIndicator)
+//        if categorySeeAllIndicator == 0 {
+//            for categorye in moreDoctorsCategory {
+//                doctorsTenCategoryes.append(categorye)
+//            }
+//            print("123")
+//        }
+//        DispatchQueue.main.async {
+//            self.infoCollection.reloadData()
+//        }
+//        categorySeeAllIndicator = 1
     }
     
     // MARK: - Configure UI
@@ -95,7 +144,10 @@ class HomeViewController: UIViewController {
         view.addSubview(bellButton)
         view.addSubview(searchBar)
         view.addSubview(infoCollection)
-        view.addSubview(infoCollectionSegmentControll)
+        view.addSubview(infoViewControll)
+        view.addSubview(categoriesLabel)
+        view.addSubview(categorySeeAllButton)
+        view.addSubview(categoryesCollection)
     }
     
     private func settingUpDelegates() {
@@ -104,14 +156,25 @@ class HomeViewController: UIViewController {
         searchBar.micDelegate = self
         infoCollection.delegate = self
         infoCollection.dataSource = self
+        categoryesCollection.delegate = self
+        categoryesCollection.dataSource = self
     }
     
     private func registerCells() {
         infoCollection.register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: K.CellsIds.mainPageInfoCell)
+        categoryesCollection.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: K.CellsIds.categoryesCell)
     }
     
-    private func configureSegmentedControll() {
-        infoCollectionSegmentControll.setImage(UIImage(systemName: "circle.fill"), forSegmentAt: 1)
+    private func configureInfoPageControll() {
+        infoViewControll.numberOfPages = self.collectionViewManager.dataArray.count
+        infoViewControll.currentPage = 0
+        infoViewControll.subviews.forEach {
+            $0.transform = CGAffineTransform(scaleX: 2, y: 2)
+        }
+    }
+    
+    private func configureButtonsActions() {
+        categorySeeAllButton.addTarget(self, action: #selector(categorySeeAllTaped), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -132,9 +195,17 @@ class HomeViewController: UIViewController {
             infoCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 26.72),
             infoCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
             
-            infoCollectionSegmentControll.topAnchor.constraint(equalTo: infoCollection.bottomAnchor, constant: 19.5),
-            infoCollectionSegmentControll.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            infoViewControll.topAnchor.constraint(equalTo: infoCollection.bottomAnchor, constant: 15.5),
+            infoViewControll.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            categoriesLabel.topAnchor.constraint(equalTo: infoViewControll.bottomAnchor, constant: 15.31),
+            categoriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
+            categorySeeAllButton.topAnchor.constraint(equalTo: infoViewControll.bottomAnchor, constant: 15.31),
+            categorySeeAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
         
+            categoryesCollection.topAnchor.constraint(equalTo: categoriesLabel.bottomAnchor, constant: 30),
+            categoryesCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
+            categoryesCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
         ])
     }
 
@@ -159,17 +230,44 @@ extension HomeViewController: UITextFieldDelegate, FieldSearchButtonDelegate, Fi
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionViewManager.dataArray.count
+        
+        if collectionView == infoCollection {
+            return collectionViewManager.dataArray.count
+        } else {
+            return doctorsTenCategoryes.count
+        }
+       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = infoCollection.dequeueReusableCell(withReuseIdentifier: K.CellsIds.mainPageInfoCell, for: indexPath) as! InfoCollectionViewCell
+        if collectionView == infoCollection {
+            
+            let cell = infoCollection.dequeueReusableCell(withReuseIdentifier: K.CellsIds.mainPageInfoCell, for: indexPath) as! InfoCollectionViewCell
+            
+            let currentLastItem = collectionViewManager.dataArray[indexPath.row]
+            cell.contentData = currentLastItem
+            return cell
+            
+        } else {
+            
+            let cell = categoryesCollection.dequeueReusableCell(withReuseIdentifier: K.CellsIds.categoryesCell, for: indexPath) as! CategoryCollectionViewCell
+            
+            let currentLastItem = doctorsTenCategoryes[indexPath.row]
+            cell.categoryCellLabel.text = currentLastItem
+            return cell
+        }
         
-        let currentLastItem = collectionViewManager.dataArray[indexPath.row]
-        cell.contentData = currentLastItem
-        return cell
+
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let visibleRect = CGRect(origin: self.infoCollection.contentOffset, size: self.infoCollection.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        if let visibleIndexPath = self.infoCollection.indexPathForItem(at: visiblePoint) {
+            self.infoViewControll.currentPage = visibleIndexPath.row
+        }
+    }
     
 }

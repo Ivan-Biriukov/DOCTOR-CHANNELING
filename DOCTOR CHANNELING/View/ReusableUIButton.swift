@@ -10,6 +10,7 @@ class ReusableUIButton: UIButton {
         case book
         case send
         case mic
+        case seeAll
     }
 
     private let style : ButtonStyle
@@ -82,6 +83,12 @@ class ReusableUIButton: UIButton {
             heightAnchor.constraint(equalToConstant: 60).isActive = true
             widthAnchor.constraint(equalToConstant: 60).isActive = true
             layer.cornerRadius = 50
+            
+        case .seeAll:
+            backgroundColor = .clear
+            setTitle(title, for: .normal)
+            titleLabel?.font = .averiaRegular16()
+            setTitleColor(.black, for: .normal)
         }
     }
     

@@ -7,6 +7,7 @@ struct K {
     
     struct CellsIds {
         static let mainPageInfoCell : String = "infoCell"
+        static let categoryesCell : String = "categoryCell"
     }
     
     struct Avatars {
