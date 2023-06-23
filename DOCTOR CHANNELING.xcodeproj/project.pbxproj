@@ -28,9 +28,12 @@
 		57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7784F2A3FD4E100FE43E4 /* UIFont+ Extension.swift */; };
 		57A778522A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57A778512A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf */; };
 		57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */; };
+		57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */; };
+		57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */; };
 		57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */; };
 		57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */; };
 		57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */; };
+		57B5E9422A46343900B9EEFA /* DocotrsCardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B5E9412A46343900B9EEFA /* DocotrsCardsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,9 +60,12 @@
 		57A7784F2A3FD4E100FE43E4 /* UIFont+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ Extension.swift"; sourceTree = "<group>"; };
 		57A778512A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.ttf"; sourceTree = "<group>"; };
 		57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
+		57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardTableViewCell.swift; sourceTree = "<group>"; };
+		57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardModel.swift; sourceTree = "<group>"; };
 		57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionDataModel.swift; sourceTree = "<group>"; };
 		57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionModelManager.swift; sourceTree = "<group>"; };
+		57B5E9412A46343900B9EEFA /* DocotrsCardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocotrsCardsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		578E379B2A406D7200BCD6C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57A87FD12A45B2CC00ADDF21 /* DoctorCardModel */,
 				57B55EC52A43962900683EEC /* InfoCollectionView Models */,
 			);
 			path = Model;
@@ -167,6 +174,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		57A87FD12A45B2CC00ADDF21 /* DoctorCardModel */ = {
+			isa = PBXGroup;
+			children = (
+				57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */,
+				57B5E9412A46343900B9EEFA /* DocotrsCardsManager.swift */,
+			);
+			path = DoctorCardModel;
+			sourceTree = "<group>";
+		};
 		57B48C5D2A4342290059E456 /* Cels */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +195,7 @@
 		57B48C5E2A4342400059E456 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -282,8 +299,11 @@
 				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,
 				57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */,
 				578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */,
+				57B5E9422A46343900B9EEFA /* DocotrsCardsManager.swift in Sources */,
 				57A5281C2A424193004269B4 /* HomeViewController.swift in Sources */,
 				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
+				57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */,
+				57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */,
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,
 				579D09862A44EE120033C417 /* CategoryCollectionViewCell.swift in Sources */,
 				57A5281A2A4208EF004269B4 /* TextFieldsLabel.swift in Sources */,

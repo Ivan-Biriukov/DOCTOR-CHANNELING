@@ -5,6 +5,8 @@ class HomeViewController: UIViewController {
     // MARK: - Data
     
     private let collectionViewManager = InfoCollectionModelManager()
+    private let doctorsCardsManager = DoctorsCardsManager()
+    
     private var doctorsTenCategoryes : [String] = ["dentist", "surgeon", "urologist", "neurologist", "psychiatrist", "otolaryngologist", "obstetrician", "dermatologist", "cardiologist", "endocrinologist"
     ]
     private let moreDoctorsCategory : [String] = [
@@ -90,6 +92,25 @@ class HomeViewController: UIViewController {
         return c
     }()
     
+    private let allDoctorsLabel : UILabel = {
+        let lb = UILabel()
+        lb.font = .averiaRegular24()
+        lb.textColor = .black
+        lb.textAlignment = .left
+        lb.text = "All Doctors"
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    private lazy var doctorsSeeAllButton = ReusableUIButton(style: .seeAll, title: "See All")
+    
+    private let doctorsTableView : UITableView = {
+        let tb = UITableView()
+        tb.backgroundColor = .clear
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        return tb
+    }()
+    
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -118,22 +139,22 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.bellButton.alpha = 1.0
         }
-        
     }
     
     @objc func categorySeeAllTaped() {
-        print("check")
-        print(categorySeeAllIndicator)
-//        if categorySeeAllIndicator == 0 {
-//            for categorye in moreDoctorsCategory {
-//                doctorsTenCategoryes.append(categorye)
-//            }
-//            print("123")
-//        }
-//        DispatchQueue.main.async {
-//            self.infoCollection.reloadData()
-//        }
-//        categorySeeAllIndicator = 1
+       if categorySeeAllIndicator == 0 {
+            for categorye in moreDoctorsCategory {
+                doctorsTenCategoryes.append(categorye)
+            }
+           DispatchQueue.main.async {
+               self.categoryesCollection.reloadData()
+           }
+      }
+        categorySeeAllIndicator = 1
+    }
+    
+    @objc func doctorsSeeAllButtonTaped() {
+        
     }
     
     // MARK: - Configure UI
@@ -148,6 +169,9 @@ class HomeViewController: UIViewController {
         view.addSubview(categoriesLabel)
         view.addSubview(categorySeeAllButton)
         view.addSubview(categoryesCollection)
+        view.addSubview(allDoctorsLabel)
+        view.addSubview(doctorsSeeAllButton)
+        view.addSubview(doctorsTableView)
     }
     
     private func settingUpDelegates() {
@@ -158,6 +182,8 @@ class HomeViewController: UIViewController {
         infoCollection.dataSource = self
         categoryesCollection.delegate = self
         categoryesCollection.dataSource = self
+        doctorsTableView.delegate = self
+        doctorsTableView.dataSource = self
     }
     
     private func registerCells() {
@@ -175,6 +201,7 @@ class HomeViewController: UIViewController {
     
     private func configureButtonsActions() {
         categorySeeAllButton.addTarget(self, action: #selector(categorySeeAllTaped), for: .touchUpInside)
+        doctorsSeeAllButton.addTarget(self, action: #selector(doctorsSeeAllButtonTaped), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -206,6 +233,11 @@ class HomeViewController: UIViewController {
             categoryesCollection.topAnchor.constraint(equalTo: categoriesLabel.bottomAnchor, constant: 30),
             categoryesCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
             categoryesCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            
+            allDoctorsLabel.topAnchor.constraint(equalTo: categoryesCollection.bottomAnchor, constant: 30),
+            allDoctorsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
+            doctorsSeeAllButton.topAnchor.constraint(equalTo: categoryesCollection.bottomAnchor, constant: 30),
+            doctorsSeeAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
         ])
     }
 
@@ -269,5 +301,26 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             self.infoViewControll.currentPage = visibleIndexPath.row
         }
     }
+}
+
+
+// MARK: - TableView Delegates & DataSource
+
+extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return doctorsCardsManager.doctorsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = doctorsTableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
+        
+        let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.row]
+        cell.data = currentLastItem
+        
+        return cell
+    }
+    
     
 }

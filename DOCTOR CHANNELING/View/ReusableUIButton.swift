@@ -93,9 +93,9 @@ class ReusableUIButton: UIButton {
     }
     
     @objc func btnClicked (_ sender:UIButton) {
-        self.alpha = 0.5
+        sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.alpha = 1.0
+            sender.alpha = 1.0
         }
     }
 

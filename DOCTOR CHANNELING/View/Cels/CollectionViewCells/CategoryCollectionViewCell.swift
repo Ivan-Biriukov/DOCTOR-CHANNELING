@@ -7,6 +7,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         lb.font = .averiaRegular20()
         lb.textColor = .white
         lb.textAlignment = .center
+        lb.numberOfLines = 0
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
