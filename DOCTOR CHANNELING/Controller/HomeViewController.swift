@@ -175,7 +175,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func doctorsSeeAllButtonTaped() {
-        
+        presentNewVC(vcToPresent: DoctorListViewController())
     }
     
     // MARK: - Configure UI
@@ -207,6 +207,7 @@ class HomeViewController: UIViewController {
         categoryesCollection.dataSource = self
         doctorsTableView.delegate = self
         doctorsTableView.dataSource = self
+        
     }
     
     private func registerCells() {
@@ -372,6 +373,13 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
         let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.section]
         cell.data = currentLastItem
+        cell.selectionStyle = .none
+        cell.likeButtonCallBack = {
+            
+        }
+        cell.bookButtonCallBack = {
+            
+        }
         return cell
     }
 }

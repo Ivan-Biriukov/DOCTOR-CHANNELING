@@ -44,8 +44,6 @@ extension UIViewController {
         titleView.alignment = .center
         titleView.tintColor = .black
         self.navigationController?.navigationItem.titleView = titleView
-      //  self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = true
-        
         self.navigationController?.navigationItem.rightBarButtonItem = btn
         self.navigationController?.navigationBar.standardAppearance = navBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
@@ -59,20 +57,25 @@ extension UIViewController {
 
         if isThemeLight{
             navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textLightBlue, NSAttributedString.Key.font: UIFont.averiaBold26() ?? UIFont.systemFont(ofSize: 26)]
+            let navBarBackButton = UIBarButtonItem()
+            navBarBackButton.title = nil
+            self.navigationController?.navigationBar.topItem?.backBarButtonItem = navBarBackButton
         } else {
             navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.averiaBold26() ?? UIFont.systemFont(ofSize: 26)]
+            let navBarBackButton = UIBarButtonItem()
+            navBarBackButton.image = UIImage(named: K.ButtonsImgs.NavBarButtons.back)
+            navBarBackButton.title = nil
+            self.navigationController?.navigationBar.topItem?.backBarButtonItem = navBarBackButton
         }
         
         navBarAppearance.backgroundColor = .clear
-        
-        let navBarBackButton = UIBarButtonItem()
-        navBarBackButton.image = UIImage(named: K.ButtonsImgs.NavBarButtons.back)
-        navBarBackButton.title = nil
+        self.navigationController?.navigationBar.tintColor = .black
+
         self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = false
         self.title = text
         self.navigationController?.navigationBar.standardAppearance = navBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = navBarBackButton
+
     }
     
     func chatVCNavBar(titleText text: String, callButton: UIButton, videoButton: UIButton) {

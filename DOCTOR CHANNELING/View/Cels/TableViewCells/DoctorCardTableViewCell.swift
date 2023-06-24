@@ -3,6 +3,9 @@ import UIKit
 class DoctorCardTableViewCell: UITableViewCell {
     
     private var isLikeButtonTaped : Bool = false
+    var likeButtonCallBack: () -> ()  = { }
+    var bookButtonCallBack: () -> ()  = { }
+    
     
     var data : DoctorCardModel? {
         didSet {
@@ -35,7 +38,7 @@ class DoctorCardTableViewCell: UITableViewCell {
         like.setTitle(nil, for: .normal)
         like.setImage(UIImage(systemName: "heart"), for: .normal)
         like.tintColor = .cellsBlueColor
-        like.addTarget(self, action: #selector(buttonTaped(_:)), for: .touchUpInside)
+        like.addTarget(self, action: #selector(likeButtonTaped), for: .touchUpInside)
         like.translatesAutoresizingMaskIntoConstraints = false
         return like
     }()
@@ -114,11 +117,11 @@ class DoctorCardTableViewCell: UITableViewCell {
     
 
     private func configure() {
-        bookButton.addTarget(self, action: #selector(buttonTaped(_:)), for: .touchUpInside)
+        bookButton.addTarget(self, action: #selector(bookButtonTaped), for: .touchUpInside)
         backgroundColor = .lightGrayBackgroundColor
         layer.cornerRadius = 10
         
-        addSubview(mainStackView)
+        contentView.addSubview(mainStackView)
         mainStackView.addArrangedSubview(doctorImage)
         mainStackView.addArrangedSubview(rightSideStack)
         rightSideStack.addArrangedSubview(firstLaneStack)
@@ -133,10 +136,10 @@ class DoctorCardTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             
-            mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
-            mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             
             bookButton.widthAnchor.constraint(equalToConstant: 80),
             bookButton.heightAnchor.constraint(equalToConstant: 28),
@@ -152,23 +155,26 @@ class DoctorCardTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func buttonTaped(_ sender: UIButton) {
-        
-        sender.alpha = 0.5
+    @objc func bookButtonTaped() {
+        bookButton.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            sender.alpha = 1.0
+            self.bookButton.alpha = 1.0
         }
+        bookButtonCallBack()
         
-        if sender == likeButton {
-            isLikeButtonTaped = !isLikeButtonTaped
-            if isLikeButtonTaped {
-                likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            } else {
-                likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            }
-        } else if sender == bookButton {
-            
-        }
     }
     
+    @objc func likeButtonTaped() {
+        likeButton.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.likeButton.alpha = 1.0
+        }
+        likeButtonCallBack()
+        isLikeButtonTaped = !isLikeButtonTaped
+        if isLikeButtonTaped {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
 }

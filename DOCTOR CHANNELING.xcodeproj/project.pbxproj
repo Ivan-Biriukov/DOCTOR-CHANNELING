@@ -33,6 +33,7 @@
 		57AF7FD72A4761C9002DC7A9 /* TimeAndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */; };
 		57AF7FD92A476319002DC7A9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD82A476319002DC7A9 /* ChatViewController.swift */; };
 		57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */; };
+		57AF7FDF2A479CAF002DC7A9 /* DoctorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */; };
 		57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */; };
 		57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */; };
 		57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */; };
@@ -68,6 +69,7 @@
 		57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAndDateViewController.swift; sourceTree = "<group>"; };
 		57AF7FD82A476319002DC7A9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListViewController.swift; sourceTree = "<group>"; };
 		57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionDataModel.swift; sourceTree = "<group>"; };
 		57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionModelManager.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */,
 				57A528172A420792004269B4 /* CreateAccountViewController.swift */,
 				57A5281B2A424193004269B4 /* HomeViewController.swift */,
+				57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */,
 				57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */,
 				57AF7FD82A476319002DC7A9 /* ChatViewController.swift */,
 				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
@@ -309,6 +312,7 @@
 				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,
 				57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */,
 				578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */,
+				57AF7FDF2A479CAF002DC7A9 /* DoctorListViewController.swift in Sources */,
 				57B5E9422A46343900B9EEFA /* DocotrsCardsManager.swift in Sources */,
 				57A5281C2A424193004269B4 /* HomeViewController.swift in Sources */,
 				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
