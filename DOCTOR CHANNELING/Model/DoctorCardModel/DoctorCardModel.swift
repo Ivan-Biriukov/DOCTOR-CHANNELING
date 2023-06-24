@@ -4,5 +4,5 @@ struct DoctorCardModel {
     let imgae : UIImage
     let name : String
     let description : String
-    let raiting : Float
+    let raiting : String
 }

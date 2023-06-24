@@ -9,31 +9,14 @@ class DoctorCardTableViewCell: UITableViewCell {
             self.doctorImage.image = data?.imgae
             self.doctorNameLabel.text = data?.name
             self.doctorDescriptionLabel.text = data?.description
-            self.doctorRatingLabel.text = String("\(data?.raiting)")
+            self.doctorRatingLabel.text = data?.raiting
         }
     }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configure()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let containerView : UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGrayBackgroundColor
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     
     let doctorImage : UIImageView = {
         let img = UIImageView()
         img.frame = CGRect(x: 0, y: 0, width: 140, height: 154)
-        img.contentMode = .scaleToFill
+        img.contentMode = .scaleAspectFit
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -80,7 +63,7 @@ class DoctorCardTableViewCell: UITableViewCell {
     let starIcon : UIImageView = {
         let star = UIImageView(image: UIImage(systemName: "star.fill"))
         star.tintColor = .uiGold
-        star.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        star.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
         star.translatesAutoresizingMaskIntoConstraints = false
         return star
     }()
@@ -97,7 +80,8 @@ class DoctorCardTableViewCell: UITableViewCell {
     private let ratingStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.distribution = .equalSpacing
+        stack.distribution = .fill
+        stack.alignment = .center
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -122,16 +106,19 @@ class DoctorCardTableViewCell: UITableViewCell {
     private let mainStackView : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
+        stack.backgroundColor = .clear
         stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
 
     private func configure() {
         bookButton.addTarget(self, action: #selector(buttonTaped(_:)), for: .touchUpInside)
+        backgroundColor = .lightGrayBackgroundColor
+        layer.cornerRadius = 10
         
-        self.addSubview(containerView)
-        containerView.addSubview(mainStackView)
+        addSubview(mainStackView)
         mainStackView.addArrangedSubview(doctorImage)
         mainStackView.addArrangedSubview(rightSideStack)
         rightSideStack.addArrangedSubview(firstLaneStack)
@@ -145,15 +132,24 @@ class DoctorCardTableViewCell: UITableViewCell {
         ratingStack.addArrangedSubview(doctorRatingLabel)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: self.topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: self.leftAnchor),
-            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            containerView.leadingAnchor.constraint(equalTo: self.leftAnchor),
-            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            
+            mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            
+            bookButton.widthAnchor.constraint(equalToConstant: 80),
+            bookButton.heightAnchor.constraint(equalToConstant: 28),
         ])
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc func buttonTaped(_ sender: UIButton) {
@@ -174,4 +170,5 @@ class DoctorCardTableViewCell: UITableViewCell {
             
         }
     }
+    
 }

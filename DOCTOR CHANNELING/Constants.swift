@@ -46,6 +46,8 @@ struct K {
             static let clock : String = "ClockButton"
             static let chat : String = "ChatButton"
             static let profile : String = "ProfileButton"
+            static let selectedItemBG : String = "SelectedItemOfTabBar"
+            static let unselectedItemBG : String = "UnselectedTabBarItemBG"
         }
         
         struct ProfileButtons {

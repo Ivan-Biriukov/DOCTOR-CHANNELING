@@ -30,6 +30,9 @@
 		57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */; };
 		57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */; };
 		57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */; };
+		57AF7FD72A4761C9002DC7A9 /* TimeAndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */; };
+		57AF7FD92A476319002DC7A9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD82A476319002DC7A9 /* ChatViewController.swift */; };
+		57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */; };
 		57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */; };
 		57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */; };
 		57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */; };
@@ -62,6 +65,9 @@
 		57A778532A3FD96400FE43E4 /* UIColor+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ Extension.swift"; sourceTree = "<group>"; };
 		57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardTableViewCell.swift; sourceTree = "<group>"; };
 		57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardModel.swift; sourceTree = "<group>"; };
+		57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAndDateViewController.swift; sourceTree = "<group>"; };
+		57AF7FD82A476319002DC7A9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionDataModel.swift; sourceTree = "<group>"; };
 		57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionModelManager.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				57A778362A3FD29200FE43E4 /* WellcomeViewController.swift */,
 				57A528172A420792004269B4 /* CreateAccountViewController.swift */,
 				57A5281B2A424193004269B4 /* HomeViewController.swift */,
+				57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */,
+				57AF7FD82A476319002DC7A9 /* ChatViewController.swift */,
+				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 			files = (
 				57A528182A420792004269B4 /* CreateAccountViewController.swift in Sources */,
 				57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */,
+				57AF7FD92A476319002DC7A9 /* ChatViewController.swift in Sources */,
 				57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */,
 				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,
 				57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */,
@@ -307,9 +317,11 @@
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,
 				579D09862A44EE120033C417 /* CategoryCollectionViewCell.swift in Sources */,
 				57A5281A2A4208EF004269B4 /* TextFieldsLabel.swift in Sources */,
+				57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */,
 				578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */,
 				57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */,
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,
+				57AF7FD72A4761C9002DC7A9 /* TimeAndDateViewController.swift in Sources */,
 				578E37AD2A41124700BCD6C1 /* ReusableTextField.swift in Sources */,
 				57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */,
 				578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */,

@@ -87,9 +87,7 @@ class CreateAccountViewController: UIViewController {
     // MARK: - Custom Buttons Methods
     
     @objc func signUpButtonTaped() {
-        let mainNavController = UINavigationController(rootViewController: HomeViewController())
-        mainNavController.modalPresentationStyle = .fullScreen
-        present(mainNavController, animated: true)
+        present(setupMainInterfaceNavController(), animated: true)
     }
     
     @objc func facebookButtonTaped() {

@@ -68,7 +68,7 @@ class ReusableUIButton: UIButton {
             titleLabel?.textAlignment = .center
             titleLabel?.font = .averiaRegular16()
             heightAnchor.constraint(equalToConstant: 28.38).isActive = true
-            layer.cornerRadius = 20
+            layer.cornerRadius = 10
             
         case .mic:
             setImage(UIImage(named: K.ButtonsImgs.mic), for: .normal)

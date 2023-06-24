@@ -163,9 +163,7 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     }
     
     @objc func signInButtonTaped() {
-        let mainNavController = UINavigationController(rootViewController: HomeViewController())
-        mainNavController.modalPresentationStyle = .fullScreen
-        present(mainNavController, animated: true)
+        present(setupMainInterfaceNavController(), animated: true)
     }
     
     @objc func facebookButtonTaped() {

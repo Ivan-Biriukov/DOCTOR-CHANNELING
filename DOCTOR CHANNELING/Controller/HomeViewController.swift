@@ -7,6 +7,8 @@ class HomeViewController: UIViewController {
     private let collectionViewManager = InfoCollectionModelManager()
     private let doctorsCardsManager = DoctorsCardsManager()
     
+    
+    
     private var doctorsTenCategoryes : [String] = ["dentist", "surgeon", "urologist", "neurologist", "psychiatrist", "otolaryngologist", "obstetrician", "dermatologist", "cardiologist", "endocrinologist"
     ]
     private let moreDoctorsCategory : [String] = [
@@ -121,11 +123,11 @@ class HomeViewController: UIViewController {
     
     private let doctorsTableView : UITableView = {
         let tb = UITableView()
-        tb.backgroundColor = .clear
+        tb.separatorStyle = .none
         tb.translatesAutoresizingMaskIntoConstraints = false
         return tb
     }()
-    
+        
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -139,6 +141,10 @@ class HomeViewController: UIViewController {
         registerCells()
         configureInfoPageControll()
         configureButtonsActions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -272,7 +278,9 @@ class HomeViewController: UIViewController {
             doctorsTableView.topAnchor.constraint(equalTo: allDoctorsLabel.bottomAnchor, constant: 30),
             doctorsTableView.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
             doctorsTableView.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
-            doctorsTableView.bottomAnchor.constraint(equalTo: inScrollContainer.bottomAnchor, constant: -10),
+            doctorsTableView.bottomAnchor.constraint(equalTo: inScrollContainer.bottomAnchor, constant: -90),
+            doctorsTableView.heightAnchor.constraint(equalToConstant: 600),
+            
         ])
     }
 
@@ -343,19 +351,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return doctorsCardsManager.doctorsArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
-        
-        let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.row]
-        cell.data = currentLastItem
-        
-        return cell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return ""
+        } else {
+            return " "
+        }
     }
     
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
+        let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.section]
+        cell.data = currentLastItem
+        return cell
+    }
 }

@@ -109,6 +109,37 @@ extension UIViewController {
         }
     }
     
+    
+    func setupMainInterfaceNavController() -> UITabBarController {
+        let tabBarVC = UITabBarController()
+        
+        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        homeVC.title = ""
+        let dateVC = UINavigationController(rootViewController: TimeAndDateViewController())
+        dateVC.title = ""
+        let chatVC = UINavigationController(rootViewController: ChatViewController())
+        chatVC.title = ""
+        let settingsVC = UINavigationController(rootViewController: SettingsViewController())
+        settingsVC.title = ""
+        
+        tabBarVC.setViewControllers([homeVC, dateVC, chatVC, settingsVC], animated: true)
+        tabBarVC.tabBar.backgroundColor = .clear
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.tabBar.unselectedItemTintColor = .black
+        tabBarVC.tabBar.selectionIndicatorImage = UIImage(named: K.ButtonsImgs.TabBarButtons.selectedItemBG)
+        tabBarVC.tabBar.tintColor = .white
+        
+        guard let items = tabBarVC.tabBar.items else {return UITabBarController()}
+        
+        let images = [K.ButtonsImgs.TabBarButtons.home, K.ButtonsImgs.TabBarButtons.clock, K.ButtonsImgs.TabBarButtons.chat, K.ButtonsImgs.TabBarButtons.profile]
+        
+        for x in 0..<items.count {
+            items[x].image = UIImage(named: images[x])
+        }
+        
+        return tabBarVC
+    }
+        
     // MARK: - Other stuff
     
     func hideKeyboardWhenTappedAround() {
