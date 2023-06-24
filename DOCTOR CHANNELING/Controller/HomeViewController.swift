@@ -17,6 +17,21 @@ class HomeViewController: UIViewController {
     
     // MARK: - UI Elements
     
+    private let mainScrollContainer : UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.backgroundColor = .clear
+        scroll.contentInsetAdjustmentBehavior = .never
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        return scroll
+    }()
+    
+    private let inScrollContainer : UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let userAvatar : UIImageView = {
         let avatar = UIImageView()
         avatar.image = UIImage(named: K.Avatars.userAvatarIcon)
@@ -160,18 +175,20 @@ class HomeViewController: UIViewController {
     // MARK: - Configure UI
     
     private func addSubviews() {
-        view.addSubview(userAvatar)
-        view.addSubview(userNameLabel)
-        view.addSubview(bellButton)
-        view.addSubview(searchBar)
-        view.addSubview(infoCollection)
-        view.addSubview(infoViewControll)
-        view.addSubview(categoriesLabel)
-        view.addSubview(categorySeeAllButton)
-        view.addSubview(categoryesCollection)
-        view.addSubview(allDoctorsLabel)
-        view.addSubview(doctorsSeeAllButton)
-        view.addSubview(doctorsTableView)
+        view.addSubview(mainScrollContainer)
+        mainScrollContainer.addSubview(inScrollContainer)
+        inScrollContainer.addSubview(userAvatar)
+        inScrollContainer.addSubview(userNameLabel)
+        inScrollContainer.addSubview(bellButton)
+        inScrollContainer.addSubview(searchBar)
+        inScrollContainer.addSubview(infoCollection)
+        inScrollContainer.addSubview(infoViewControll)
+        inScrollContainer.addSubview(categoriesLabel)
+        inScrollContainer.addSubview(categorySeeAllButton)
+        inScrollContainer.addSubview(categoryesCollection)
+        inScrollContainer.addSubview(allDoctorsLabel)
+        inScrollContainer.addSubview(doctorsSeeAllButton)
+        inScrollContainer.addSubview(doctorsTableView)
     }
     
     private func settingUpDelegates() {
@@ -189,6 +206,7 @@ class HomeViewController: UIViewController {
     private func registerCells() {
         infoCollection.register(InfoCollectionViewCell.self, forCellWithReuseIdentifier: K.CellsIds.mainPageInfoCell)
         categoryesCollection.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: K.CellsIds.categoryesCell)
+        doctorsTableView.register(DoctorCardTableViewCell.self, forCellReuseIdentifier: K.CellsIds.doctorsTableViewCell)
     }
     
     private func configureInfoPageControll() {
@@ -207,37 +225,54 @@ class HomeViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
         
-            userAvatar.topAnchor.constraint(equalTo: view.topAnchor, constant: 75.81),
-            userAvatar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
-            userNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.48),
+            mainScrollContainer.topAnchor.constraint(equalTo: view.topAnchor),
+            mainScrollContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainScrollContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainScrollContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            inScrollContainer.topAnchor.constraint(equalTo: mainScrollContainer.topAnchor),
+            inScrollContainer.leadingAnchor.constraint(equalTo: mainScrollContainer.leadingAnchor),
+            inScrollContainer.trailingAnchor.constraint(equalTo: mainScrollContainer.trailingAnchor),
+            inScrollContainer.bottomAnchor.constraint(equalTo: mainScrollContainer.bottomAnchor),
+            inScrollContainer.widthAnchor.constraint(equalTo: mainScrollContainer.widthAnchor),
+
+            
+            userAvatar.topAnchor.constraint(equalTo: inScrollContainer.topAnchor, constant: 75.81),
+            userAvatar.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
+            userNameLabel.topAnchor.constraint(equalTo: inScrollContainer.topAnchor, constant: 100.48),
             userNameLabel.leadingAnchor.constraint(equalTo: userAvatar.trailingAnchor, constant: 19.64),
-            bellButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 94.81),
-            bellButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            bellButton.topAnchor.constraint(equalTo: inScrollContainer.topAnchor, constant: 94.81),
+            bellButton.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
 
             searchBar.topAnchor.constraint(equalTo: userAvatar.bottomAnchor, constant: 31.81),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            searchBar.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
+            searchBar.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
         
             infoCollection.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 31.81),
-            infoCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 26.72),
-            infoCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            infoCollection.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor,constant: 26.72),
+            infoCollection.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
             
             infoViewControll.topAnchor.constraint(equalTo: infoCollection.bottomAnchor, constant: 15.5),
-            infoViewControll.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            infoViewControll.centerXAnchor.constraint(equalTo: inScrollContainer.centerXAnchor),
             
             categoriesLabel.topAnchor.constraint(equalTo: infoViewControll.bottomAnchor, constant: 15.31),
-            categoriesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
+            categoriesLabel.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
             categorySeeAllButton.topAnchor.constraint(equalTo: infoViewControll.bottomAnchor, constant: 15.31),
-            categorySeeAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            categorySeeAllButton.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
         
             categoryesCollection.topAnchor.constraint(equalTo: categoriesLabel.bottomAnchor, constant: 30),
-            categoryesCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
-            categoryesCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            categoryesCollection.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
+            categoryesCollection.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
             
             allDoctorsLabel.topAnchor.constraint(equalTo: categoryesCollection.bottomAnchor, constant: 30),
-            allDoctorsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
+            allDoctorsLabel.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
             doctorsSeeAllButton.topAnchor.constraint(equalTo: categoryesCollection.bottomAnchor, constant: 30),
-            doctorsSeeAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
+            doctorsSeeAllButton.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
+            
+            doctorsTableView.topAnchor.constraint(equalTo: allDoctorsLabel.bottomAnchor, constant: 30),
+            doctorsTableView.leadingAnchor.constraint(equalTo: inScrollContainer.leadingAnchor, constant: 26.72),
+            doctorsTableView.trailingAnchor.constraint(equalTo: inScrollContainer.trailingAnchor, constant: -26.72),
+            doctorsTableView.bottomAnchor.constraint(equalTo: inScrollContainer.bottomAnchor, constant: -10),
         ])
     }
 
@@ -314,7 +349,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = doctorsTableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
         
         let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.row]
         cell.data = currentLastItem
