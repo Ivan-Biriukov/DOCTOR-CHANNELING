@@ -1,9 +1,3 @@
-//
-//  TimeAndDateViewController.swift
-//  DOCTOR CHANNELING
-//
-//  Created by иван Бирюков on 24.06.2023.
-//
 
 import UIKit
 
@@ -11,19 +5,12 @@ class TimeAndDateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        mainInterfaceNavBar(titleText: "Select date and time", isThemeLight: true)
+        
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

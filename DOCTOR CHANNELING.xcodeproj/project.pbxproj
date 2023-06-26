@@ -119,10 +119,10 @@
 				57A528172A420792004269B4 /* CreateAccountViewController.swift */,
 				57A5281B2A424193004269B4 /* HomeViewController.swift */,
 				57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */,
+				5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */,
 				57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */,
 				57AF7FD82A476319002DC7A9 /* ChatViewController.swift */,
 				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
-				5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

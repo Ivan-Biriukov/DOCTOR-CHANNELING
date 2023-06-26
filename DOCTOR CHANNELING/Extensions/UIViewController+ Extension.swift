@@ -72,7 +72,7 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor = .black
 
         self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = false
-        self.title = text
+        self.navigationItem.title = text
         self.navigationController?.navigationBar.standardAppearance = navBarAppearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
 
