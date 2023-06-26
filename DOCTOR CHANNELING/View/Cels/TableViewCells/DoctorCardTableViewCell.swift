@@ -1,10 +1,15 @@
 import UIKit
 
+protocol DoctorCardTableViewCellLikeDelegate {
+    func ikeButtonTaped(isTaped : Bool)
+}
+
 class DoctorCardTableViewCell: UITableViewCell {
     
-    private var isLikeButtonTaped : Bool = false
-    var likeButtonCallBack: () -> ()  = { }
+   var isLikeButtonTaped : Bool = true
+//    var likeButtonCallBack: () -> ()  = { }
     var bookButtonCallBack: () -> ()  = { }
+   var likeDelegate : DoctorCardTableViewCellLikeDelegate?
     
     
     var data : DoctorCardModel? {
@@ -13,6 +18,9 @@ class DoctorCardTableViewCell: UITableViewCell {
             self.doctorNameLabel.text = data?.name
             self.doctorDescriptionLabel.text = data?.description
             self.doctorRatingLabel.text = data?.raiting
+            self.isLikeButtonTaped = data!.isLiked
+         //   data?.isLiked = self.isLikeButtonTaped
+
         }
     }
     
@@ -160,7 +168,8 @@ class DoctorCardTableViewCell: UITableViewCell {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.bookButton.alpha = 1.0
         }
-        bookButtonCallBack()
+        
+       bookButtonCallBack()
         
     }
     
@@ -169,9 +178,13 @@ class DoctorCardTableViewCell: UITableViewCell {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.likeButton.alpha = 1.0
         }
-        likeButtonCallBack()
-        isLikeButtonTaped = !isLikeButtonTaped
-        if isLikeButtonTaped {
+        likeDelegate?.ikeButtonTaped(isTaped: isLikeButtonTaped)
+    }
+    
+    func configureLikeButton (isTaped bool : Bool) {
+        self.isLikeButtonTaped = bool
+        
+        if bool {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)

@@ -6,6 +6,7 @@ class DoctorListViewController: UIViewController {
     
     private var doctorCardManager = DoctorsCardsManager()
     private let cellId = "CellId"
+
     
     private let searchBar = ReusableTextField(style: .searchField)
     private let doctorsListTableView : UITableView = {
@@ -34,8 +35,8 @@ class DoctorListViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = false
+//        self.navigationController?.navigationBar.isHidden = true
+//        self.tabBarController?.tabBar.isHidden = false
     }
 
     
@@ -93,7 +94,12 @@ extension DoctorListViewController : UITextFieldDelegate, FieldSearchButtonDeleg
 
 // MARK: - TableView Delegate & DataSource Methods
 
-extension DoctorListViewController : UITableViewDelegate, UITableViewDataSource {
+extension DoctorListViewController : UITableViewDelegate, UITableViewDataSource,DoctorCardTableViewCellLikeDelegate {
+    
+    func ikeButtonTaped(isTaped: Bool) {
+       
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return doctorCardManager.doctorsArray.count
@@ -110,7 +116,13 @@ extension DoctorListViewController : UITableViewDelegate, UITableViewDataSource 
         let currentLastItem = doctorCardManager.doctorsArray[indexPath.section]
         
         cell.data = currentLastItem
+        cell.bookButtonCallBack = {
+            self.navigationController?.pushViewController(DoctorDetailViewController(), animated: true)
+        }
         
+        cell.isLikeButtonTaped = currentLastItem.isLiked
+        cell.likeDelegate = self
+        cell.configureLikeButton(isTaped: currentLastItem.isLiked)
         return cell
     }
     
@@ -121,6 +133,5 @@ extension DoctorListViewController : UITableViewDelegate, UITableViewDataSource 
             return " "
         }
     }
-
 
 }

@@ -5,4 +5,5 @@ struct DoctorCardModel {
     let name : String
     let description : String
     let raiting : String
+    var isLiked : Bool = false
 }

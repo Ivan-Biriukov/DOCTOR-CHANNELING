@@ -303,7 +303,9 @@ extension HomeViewController: UITextFieldDelegate, FieldSearchButtonDelegate, Fi
 
 // MARK: - CollectionView DataSource & Delegates
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -374,12 +376,6 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.section]
         cell.data = currentLastItem
         cell.selectionStyle = .none
-        cell.likeButtonCallBack = {
-            
-        }
-        cell.bookButtonCallBack = {
-            
-        }
         return cell
     }
 }

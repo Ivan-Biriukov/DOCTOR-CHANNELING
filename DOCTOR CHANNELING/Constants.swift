@@ -9,6 +9,7 @@ struct K {
         static let mainPageInfoCell : String = "infoCell"
         static let categoryesCell : String = "categoryCell"
         static let doctorsTableViewCell : String = "doctorCardCell"
+        static let timeSlotCollectionCell : String = "timeCell"
     }
     
     struct Avatars {
@@ -58,6 +59,12 @@ struct K {
             static let setting : String = "SettingsButton"
             static let help : String = "HelpButton"
             static let logOut : String = "LogoutButton"
+        }
+        
+        struct BookVC {
+            static let chatButton : String = "chatButton"
+            static let callButton : String = "phoneCall"
+            static let videoCallButton : String = "videoCall"
         }
     }
 }
