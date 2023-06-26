@@ -234,6 +234,7 @@ class DoctorDetailViewController: UIViewController {
         setupConstraints()
         configureCollections()
         setupButtonsMethods()
+        self.navigationController?.hidesBarsOnSwipe = true
         
         
         
@@ -277,9 +278,9 @@ class DoctorDetailViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(mainScrollContainer)
         mainScrollContainer.addSubview(scrollContentView)
-        view.addSubview(doctorImageContainer)
+        scrollContentView.addSubview(doctorImageContainer)
         doctorImageContainer.addSubview(doctorAvatarImg)
-        view.addSubview(topRightMainStack)
+        scrollContentView.addSubview(topRightMainStack)
         topRightMainStack.addArrangedSubview(doctorNameLabel)
         topRightMainStack.addArrangedSubview(contactsButtonsStack)
         contactsButtonsStack.addArrangedSubview(chatButton)
@@ -290,15 +291,15 @@ class DoctorDetailViewController: UIViewController {
         topRightMainStack.addArrangedSubview(paymentStack)
         paymentStack.addArrangedSubview(paymentTitleLabe)
         paymentStack.addArrangedSubview(paymentCostLabel)
-        view.addSubview(detailsStack)
+        scrollContentView.addSubview(detailsStack)
         detailsStack.addArrangedSubview(detailsTitleLabel)
         detailsStack.addArrangedSubview(detailsDescriptionLabel)
-        view.addSubview(workingsHoursTitle)
-        view.addSubview(workingHoursSeeAllButton)
-        view.addSubview(workingHoursCollection)
-        view.addSubview(dateTitle)
-        view.addSubview(dateSeeAllButton)
-        view.addSubview(dateCollection)
+        scrollContentView.addSubview(workingsHoursTitle)
+        scrollContentView.addSubview(workingHoursSeeAllButton)
+        scrollContentView.addSubview(workingHoursCollection)
+        scrollContentView.addSubview(dateTitle)
+        scrollContentView.addSubview(dateSeeAllButton)
+        scrollContentView.addSubview(dateCollection)
         view.addSubview(bookButton)
     }
 
@@ -315,6 +316,8 @@ class DoctorDetailViewController: UIViewController {
         dateCollection.delegate = self
         dateCollection.dataSource = self
         dateCollection.register(TimeSlotCollectionViewCell.self, forCellWithReuseIdentifier: K.CellsIds.timeSlotCollectionCell)
+        dateCollection.isScrollEnabled = true
+        mainScrollContainer.delegate = self
     }
     
     
@@ -323,10 +326,16 @@ class DoctorDetailViewController: UIViewController {
             mainScrollContainer.topAnchor.constraint(equalTo: view.topAnchor),
             mainScrollContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainScrollContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainScrollContainer.bottomAnchor.constraint(equalTo: bookButton.topAnchor, constant: -62),
+            mainScrollContainer.bottomAnchor.constraint(equalTo: bookButton.topAnchor, constant: -10),
+            scrollContentView.topAnchor.constraint(equalTo: mainScrollContainer.topAnchor),
+            scrollContentView.leadingAnchor.constraint(equalTo: mainScrollContainer.leadingAnchor),
+            scrollContentView.trailingAnchor.constraint(equalTo: mainScrollContainer.trailingAnchor),
+            scrollContentView.bottomAnchor.constraint(equalTo: mainScrollContainer.bottomAnchor, constant: -20),
+            scrollContentView.centerXAnchor.constraint(equalTo: mainScrollContainer.centerXAnchor),
+            scrollContentView.centerYAnchor.constraint(equalTo: mainScrollContainer.centerYAnchor),
             
-            doctorImageContainer.topAnchor.constraint(equalTo: view.topAnchor, constant: 153),
-            doctorImageContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
+            doctorImageContainer.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 54),
+            doctorImageContainer.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 16.72),
             doctorImageContainer.widthAnchor.constraint(equalToConstant: 148),
             doctorImageContainer.heightAnchor.constraint(equalToConstant: 190),
             doctorAvatarImg.topAnchor.constraint(equalTo: doctorImageContainer.topAnchor, constant: 6),
@@ -334,31 +343,31 @@ class DoctorDetailViewController: UIViewController {
             doctorAvatarImg.trailingAnchor.constraint(equalTo: doctorImageContainer.trailingAnchor, constant: -6),
             doctorAvatarImg.bottomAnchor.constraint(equalTo: doctorImageContainer.bottomAnchor, constant: -6),
             
-            topRightMainStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 153),
+            topRightMainStack.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 54),
             topRightMainStack.leadingAnchor.constraint(equalTo: doctorImageContainer.trailingAnchor, constant: 23.5),
-            topRightMainStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            topRightMainStack.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19),
             
             detailsStack.topAnchor.constraint(equalTo: doctorImageContainer.bottomAnchor, constant: 40),
-            detailsStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
-            detailsStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            detailsStack.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 16.72),
+            detailsStack.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19),
             
             workingsHoursTitle.topAnchor.constraint(equalTo: detailsStack.bottomAnchor, constant: 34),
-            workingsHoursTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
+            workingsHoursTitle.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 16.72),
             workingHoursSeeAllButton.topAnchor.constraint(equalTo: detailsStack.bottomAnchor, constant: 34),
-            workingHoursSeeAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            workingHoursSeeAllButton.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19),
             workingHoursCollection.topAnchor.constraint(equalTo: workingsHoursTitle.bottomAnchor, constant: 24),
-            workingHoursCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
-            workingHoursCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
+            workingHoursCollection.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 16.72),
+            workingHoursCollection.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19),
             workingHoursCollection.heightAnchor.constraint(equalToConstant: 60),
             
             dateTitle.topAnchor.constraint(equalTo: workingHoursCollection.bottomAnchor, constant: 29),
-            dateTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
+            dateTitle.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 16.72),
             dateSeeAllButton.topAnchor.constraint(equalTo: workingHoursCollection.bottomAnchor, constant: 29),
-            dateSeeAllButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
-            dateCollection.topAnchor.constraint(equalTo: dateTitle.bottomAnchor, constant: 24),
-            dateCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
-            dateCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
-            dateCollection.heightAnchor.constraint(equalToConstant: 78),
+            dateSeeAllButton.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19),
+            dateCollection.topAnchor.constraint(equalTo: workingHoursCollection.bottomAnchor, constant: 74),
+            dateCollection.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 16.72),
+            dateCollection.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19),
+            dateCollection.heightAnchor.constraint(equalToConstant: 76),
             
             bookButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.72),
             bookButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19),
@@ -387,12 +396,16 @@ extension DoctorDetailViewController: UICollectionViewDelegate, UICollectionView
         if collectionView == workingHoursCollection {
             cell.timeLabel.text = "10.00 AM"
         } else {
-            var date = 1
+            let date = 1
             cell.timeLabel.text = "\(date + indexPath.row)"
         }
         return cell
 
     }
-    
-    
+}
+
+// MARK: - Scroll Delegate
+
+extension DoctorDetailViewController: UIScrollViewDelegate {
+
 }
