@@ -4,6 +4,8 @@ class PaymentViewController: UIViewController {
     
     private let paymentsVariationsArray : [String] = ["Card Payment","Cash Payment"]
     private var confirmButtonStatus : Bool = false
+    private var userPaymentInfo : UserCardInfo?
+    
     // MARK: - UI Elements
     
     private let costTitle : UILabel = {
@@ -159,7 +161,11 @@ class PaymentViewController: UIViewController {
     
     // MARK: - Custom Buttons Methods
     
-    @objc func payNowButtonTaped() {}
+    @objc func payNowButtonTaped() {
+        
+        self.userPaymentInfo = UserCardInfo(cardNumber: Int(cardNumberTextField.text!)!, expireDate: expiryDateTextField.text!, cvc: Int(cvcTextField.text!)!, cardHolder: cardholderNameTextField.text!)
+        
+    }
     
     @objc func segmentedControlValueChange(_ target: UISegmentedControl) {
         if target == paymentMethodsControl {
@@ -248,6 +254,7 @@ class PaymentViewController: UIViewController {
         reserveButton.backgroundColor = .textUnavalibleGray
         payNowButton.backgroundColor = .textUnavalibleGray
     }
+    
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -322,5 +329,9 @@ class PaymentViewController: UIViewController {
 // MARK: - UITextfield Delegate
 
 extension PaymentViewController : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
     
 }

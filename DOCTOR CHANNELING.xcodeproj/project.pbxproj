@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		577B03DC2A4C587B000352EA /* UserProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */; };
 		5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */; };
 		5780AB072A4A06360029E51A /* TimeSlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */; };
 		5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5780AB092A4A45070029E51A /* FSCalendar */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDataModel.swift; sourceTree = "<group>"; };
 		5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailViewController.swift; sourceTree = "<group>"; };
 		5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotCollectionViewCell.swift; sourceTree = "<group>"; };
 		5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				57A87FD12A45B2CC00ADDF21 /* DoctorCardModel */,
 				57B55EC52A43962900683EEC /* InfoCollectionView Models */,
+				577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */,
 				5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */,
 				578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */,
+				577B03DC2A4C587B000352EA /* UserProfileDataModel.swift in Sources */,
 				57A778542A3FD96400FE43E4 /* UIColor+ Extension.swift in Sources */,
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,
 				57AF7FD72A4761C9002DC7A9 /* TimeAndDateViewController.swift in Sources */,
