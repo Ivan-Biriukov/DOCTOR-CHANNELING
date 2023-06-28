@@ -133,9 +133,12 @@ class PaymentViewController: UIViewController {
         btn.setTitle(nil, for: .normal)
         btn.heightAnchor.constraint(equalToConstant: 35).isActive = true
         btn.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        btn.imageView!.contentMode = .scaleToFill
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    
+    private lazy var reserveButton = ReusableUIButton(style: .mainBottomStyle, title: "Reserve")
     
     // MARK: - LifeCycle Methods
     
@@ -149,8 +152,8 @@ class PaymentViewController: UIViewController {
         addSubviews()
         setupConstraints()
         addButtonsMethods()
- 
-        cardPaymentView.isHidden = true
+        configureButtons()
+        cashPaymentView.isHidden = true
     }
     
     
@@ -177,11 +180,20 @@ class PaymentViewController: UIViewController {
         if confirmButtonStatus {
             sender.setImage(UIImage(systemName: "square.fill"), for: .normal)
             sender.tintColor = UIColor.green
+            reserveButton.isEnabled = true
+            reserveButton.backgroundColor = .cellsBlueColor
         } else {
             sender.setImage(UIImage(systemName: "square"), for: .normal)
             sender.tintColor = UIColor.red
+            reserveButton.isEnabled = false
+            reserveButton.backgroundColor = .textUnavalibleGray
         }
     }
+    
+    @objc func reserveButtonTaped() {
+        
+    }
+    
     // MARK: - Configure UI
     
     private func addSubviews() {
@@ -203,6 +215,7 @@ class PaymentViewController: UIViewController {
         cashPaymentView.addSubview(cashPaymentMainLabel)
         cashPaymentView.addSubview(aproovmentLabel)
         cashPaymentView.addSubview(confirmButton)
+        cashPaymentView.addSubview(reserveButton)
     }
     
     private func configureSegmentedControl() {
@@ -226,6 +239,14 @@ class PaymentViewController: UIViewController {
     
     private func addButtonsMethods() {
         payNowButton.addTarget(self, action: #selector(payNowButtonTaped), for: .touchUpInside)
+        reserveButton.addTarget(self, action: #selector(reserveButtonTaped), for: .touchUpInside)
+    }
+    
+    private func configureButtons() {
+        reserveButton.isEnabled = false
+        payNowButton.isEnabled = false
+        reserveButton.backgroundColor = .textUnavalibleGray
+        payNowButton.backgroundColor = .textUnavalibleGray
     }
 
     private func setupConstraints() {
@@ -288,9 +309,11 @@ class PaymentViewController: UIViewController {
             cashPaymentMainLabel.trailingAnchor.constraint(equalTo: cashPaymentView.trailingAnchor, constant: -20),
             aproovmentLabel.topAnchor.constraint(equalTo: cashPaymentMainLabel.bottomAnchor, constant: 25),
             aproovmentLabel.leadingAnchor.constraint(equalTo: cashPaymentView.leadingAnchor, constant: 120),
-            confirmButton.topAnchor.constraint(equalTo: cashPaymentMainLabel.bottomAnchor, constant: 22),
+            confirmButton.centerYAnchor.constraint(equalTo: aproovmentLabel.centerYAnchor),
             confirmButton.leadingAnchor.constraint(equalTo: aproovmentLabel.trailingAnchor, constant: 20),
-            
+            reserveButton.leadingAnchor.constraint(equalTo: cashPaymentView.leadingAnchor, constant: 25),
+            reserveButton.trailingAnchor.constraint(equalTo: cashPaymentView.trailingAnchor, constant: -25),
+            reserveButton.bottomAnchor.constraint(equalTo: cashPaymentView.bottomAnchor, constant: -35),
         ])
     }
     
