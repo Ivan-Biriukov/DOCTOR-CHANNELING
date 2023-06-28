@@ -21,6 +21,8 @@ class ReusableTextField: UITextField {
         case phoneNumber = "Enter Your Phone Number"
         case chatTextInput = "Write here"
         case searchField = "Search a Doctor"
+        case paymentVCReusable = ""
+        
     }
     
     
@@ -92,6 +94,13 @@ class ReusableTextField: UITextField {
             rightView = rightStackView
             clearButtonMode = .never
             rightViewMode = .always
+        } else if style == .paymentVCReusable {
+            layer.borderWidth = 0
+            font = .averiaRegular16()
+            heightAnchor.constraint(equalToConstant: 50).isActive = true
+            keyboardType = .numberPad
+            clearButtonMode = .whileEditing
+            tintColor = .black
         }
     }
     

@@ -54,7 +54,7 @@ class TimeAndDateViewController: UIViewController {
     }
     
     @objc func setAppointmentButtonTaped() {
-        
+        presentNewVC(vcToPresent: PaymentViewController())
     }
     
     // MARK: - COnfigure UI

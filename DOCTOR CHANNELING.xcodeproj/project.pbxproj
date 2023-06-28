@@ -10,6 +10,7 @@
 		5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */; };
 		5780AB072A4A06360029E51A /* TimeSlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */; };
 		5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5780AB092A4A45070029E51A /* FSCalendar */; };
+		5780AB0C2A4A510E0029E51A /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */; };
 		578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E379E2A406DFA00BCD6C1 /* Constants.swift */; };
 		578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A02A40746400BCD6C1 /* UIViewController+ Extension.swift */; };
 		578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailViewController.swift; sourceTree = "<group>"; };
 		5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotCollectionViewCell.swift; sourceTree = "<group>"; };
+		5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		578E379E2A406DFA00BCD6C1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		578E37A02A40746400BCD6C1 /* UIViewController+ Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ Extension.swift"; sourceTree = "<group>"; };
 		578E37A62A40FD1C00BCD6C1 /* ReusableUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableUIButton.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */,
 				57AF7FD82A476319002DC7A9 /* ChatViewController.swift */,
 				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
+				5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,
 				579D09862A44EE120033C417 /* CategoryCollectionViewCell.swift in Sources */,
 				57A5281A2A4208EF004269B4 /* TextFieldsLabel.swift in Sources */,
+				5780AB0C2A4A510E0029E51A /* PaymentViewController.swift in Sources */,
 				57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */,
 				5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */,
 				578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */,
