@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		577B03DC2A4C587B000352EA /* UserProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */; };
+		577B03E12A4C8AD7000352EA /* Veil in Frameworks */ = {isa = PBXBuildFile; productRef = 577B03E02A4C8AD7000352EA /* Veil */; };
 		5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */; };
 		5780AB072A4A06360029E51A /* TimeSlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */; };
 		5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5780AB092A4A45070029E51A /* FSCalendar */; };
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577B03E12A4C8AD7000352EA /* Veil in Frameworks */,
 				5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +264,7 @@
 			name = "DOCTOR CHANNELING";
 			packageProductDependencies = (
 				5780AB092A4A45070029E51A /* FSCalendar */,
+				577B03E02A4C8AD7000352EA /* Veil */,
 			);
 			productName = "DOCTOR CHANNELING";
 			productReference = 57A7782F2A3FD29200FE43E4 /* DOCTOR CHANNELING.app */;
@@ -293,6 +296,7 @@
 			mainGroup = 57A778262A3FD29200FE43E4;
 			packageReferences = (
 				5780AB082A4A45070029E51A /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				577B03DF2A4C8AD7000352EA /* XCRemoteSwiftPackageReference "Veil" */,
 			);
 			productRefGroup = 57A778302A3FD29200FE43E4 /* Products */;
 			projectDirPath = "";
@@ -568,6 +572,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		577B03DF2A4C8AD7000352EA /* XCRemoteSwiftPackageReference "Veil" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DanielCardonaRojas/Veil.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 		5780AB082A4A45070029E51A /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -579,6 +591,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		577B03E02A4C8AD7000352EA /* Veil */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 577B03DF2A4C8AD7000352EA /* XCRemoteSwiftPackageReference "Veil" */;
+			productName = Veil;
+		};
 		5780AB092A4A45070029E51A /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5780AB082A4A45070029E51A /* XCRemoteSwiftPackageReference "FSCalendar" */;

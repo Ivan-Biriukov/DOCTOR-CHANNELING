@@ -8,6 +8,15 @@
         "revision" : "0fbdec5172fccb90f707472eeaea4ffe095278f6",
         "version" : "2.8.4"
       }
+    },
+    {
+      "identity" : "veil",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DanielCardonaRojas/Veil.git",
+      "state" : {
+        "revision" : "967a2f103972ce5043e28f1920330ee934bcbadc",
+        "version" : "0.2.0"
+      }
     }
   ],
   "version" : 2

@@ -1,3 +1,4 @@
+import Veil
 import UIKit
 
 class PaymentViewController: UIViewController {
@@ -149,12 +150,14 @@ class PaymentViewController: UIViewController {
         mainInterfaceNavBar(titleText: "Payment", isThemeLight: false)
         view.backgroundColor = .cellsBlueColor
         self.navigationController?.tabBarController?.tabBar.isHidden = true
+        hideKeyboardWhenTappedAround()
         
         configureSegmentedControl()
         addSubviews()
         setupConstraints()
         addButtonsMethods()
         configureButtons()
+        configureTextFields()
         cashPaymentView.isHidden = true
     }
     
@@ -241,6 +244,7 @@ class PaymentViewController: UIViewController {
         expiryDateTextField.delegate = self
         cvcTextField.delegate = self
         cardholderNameTextField.delegate = self
+        cardholderNameTextField.keyboardType = .namePhonePad
     }
     
     private func addButtonsMethods() {
@@ -331,6 +335,26 @@ class PaymentViewController: UIViewController {
 extension PaymentViewController : UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == expiryDateTextField {
+            let dateMask = Veil(pattern: "## / ## / ####")
+            
+            if let currentText = textField.text {
+                textField.text = dateMask.mask(input: currentText, exhaustive: false)
+            }
+        } else if textField == cardNumberTextField {
+            let dateMask = Veil(pattern: "#### #### #### ####")
+            
+            if let currentText = textField.text {
+                textField.text = dateMask.mask(input: currentText, exhaustive: false)
+            }
+        } else if textField == cvcTextField {
+            let dateMask = Veil(pattern: "###")
+            
+            if let currentText = textField.text {
+                textField.text = dateMask.mask(input: currentText, exhaustive: false)
+            }
+        }
         return true
     }
     
