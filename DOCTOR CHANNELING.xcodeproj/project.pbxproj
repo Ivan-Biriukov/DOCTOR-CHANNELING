@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		577B03DC2A4C587B000352EA /* UserProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */; };
 		577B03E12A4C8AD7000352EA /* Veil in Frameworks */ = {isa = PBXBuildFile; productRef = 577B03E02A4C8AD7000352EA /* Veil */; };
+		577B03E42A4CBB0C000352EA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 577B03E32A4CBB0C000352EA /* IQKeyboardManagerSwift */; };
 		5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */; };
 		5780AB072A4A06360029E51A /* TimeSlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */; };
 		5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5780AB092A4A45070029E51A /* FSCalendar */; };
@@ -93,6 +94,7 @@
 			files = (
 				577B03E12A4C8AD7000352EA /* Veil in Frameworks */,
 				5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */,
+				577B03E42A4CBB0C000352EA /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +267,7 @@
 			packageProductDependencies = (
 				5780AB092A4A45070029E51A /* FSCalendar */,
 				577B03E02A4C8AD7000352EA /* Veil */,
+				577B03E32A4CBB0C000352EA /* IQKeyboardManagerSwift */,
 			);
 			productName = "DOCTOR CHANNELING";
 			productReference = 57A7782F2A3FD29200FE43E4 /* DOCTOR CHANNELING.app */;
@@ -297,6 +300,7 @@
 			packageReferences = (
 				5780AB082A4A45070029E51A /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				577B03DF2A4C8AD7000352EA /* XCRemoteSwiftPackageReference "Veil" */,
+				577B03E22A4CBB0C000352EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 57A778302A3FD29200FE43E4 /* Products */;
 			projectDirPath = "";
@@ -580,6 +584,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		577B03E22A4CBB0C000352EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.12;
+			};
+		};
 		5780AB082A4A45070029E51A /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -595,6 +607,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 577B03DF2A4C8AD7000352EA /* XCRemoteSwiftPackageReference "Veil" */;
 			productName = Veil;
+		};
+		577B03E32A4CBB0C000352EA /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 577B03E22A4CBB0C000352EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		5780AB092A4A45070029E51A /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;

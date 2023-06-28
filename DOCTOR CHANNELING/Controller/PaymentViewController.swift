@@ -159,6 +159,9 @@ class PaymentViewController: UIViewController {
         configureButtons()
         configureTextFields()
         cashPaymentView.isHidden = true
+        
+
+
     }
     
     
@@ -166,7 +169,12 @@ class PaymentViewController: UIViewController {
     
     @objc func payNowButtonTaped() {
         
-        self.userPaymentInfo = UserCardInfo(cardNumber: Int(cardNumberTextField.text!)!, expireDate: expiryDateTextField.text!, cvc: Int(cvcTextField.text!)!, cardHolder: cardholderNameTextField.text!)
+        if let cardNumber = cardNumberTextField.text, let expireDate = expiryDateTextField.text, let cvcCode = cvcTextField.text, let cardHolderName = cardholderNameTextField.text {
+            self.userPaymentInfo = UserCardInfo(cardNumber: Int(cardNumber)!, expireDate: expireDate, cvc: Int(cvcCode)!, cardHolder: cardHolderName)
+        }
+        
+        
+
         
     }
     
@@ -355,7 +363,18 @@ extension PaymentViewController : UITextFieldDelegate {
                 textField.text = dateMask.mask(input: currentText, exhaustive: false)
             }
         }
+        
+        
+        if cardNumberTextField.text!.count == 19 && expiryDateTextField.text!.count == 14 &&  cvcTextField.text!.count == 3 && cardholderNameTextField.text != "" {
+            self.payNowButton.isEnabled = true
+            self.payNowButton.backgroundColor = .cellsBlueColor
+        } else {
+            self.payNowButton.isEnabled = false
+            self.payNowButton.backgroundColor = .textUnavalibleGray
+        }
+        
         return true
     }
     
 }
+
