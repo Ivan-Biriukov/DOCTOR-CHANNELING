@@ -4,6 +4,7 @@ import Foundation
 struct K {
     
     static let appIcon : String = "appIcon"
+    static let accept : String = "acceptIMG"
     
     struct CellsIds {
         static let mainPageInfoCell : String = "infoCell"

@@ -10,6 +10,7 @@
 		577B03DC2A4C587B000352EA /* UserProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */; };
 		577B03E12A4C8AD7000352EA /* Veil in Frameworks */ = {isa = PBXBuildFile; productRef = 577B03E02A4C8AD7000352EA /* Veil */; };
 		577B03E42A4CBB0C000352EA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 577B03E32A4CBB0C000352EA /* IQKeyboardManagerSwift */; };
+		577B03E62A4CC19B000352EA /* FinishPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577B03E52A4CC19B000352EA /* FinishPaymentViewController.swift */; };
 		5780AB052A49A59E0029E51A /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */; };
 		5780AB072A4A06360029E51A /* TimeSlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */; };
 		5780AB0A2A4A45070029E51A /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 5780AB092A4A45070029E51A /* FSCalendar */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDataModel.swift; sourceTree = "<group>"; };
+		577B03E52A4CC19B000352EA /* FinishPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPaymentViewController.swift; sourceTree = "<group>"; };
 		5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailViewController.swift; sourceTree = "<group>"; };
 		5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotCollectionViewCell.swift; sourceTree = "<group>"; };
 		5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
@@ -132,9 +134,10 @@
 				57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */,
 				5780AB042A49A59E0029E51A /* DoctorDetailViewController.swift */,
 				57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */,
+				5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */,
+				577B03E52A4CC19B000352EA /* FinishPaymentViewController.swift */,
 				57AF7FD82A476319002DC7A9 /* ChatViewController.swift */,
 				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
-				5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				57B5E9422A46343900B9EEFA /* DocotrsCardsManager.swift in Sources */,
 				57A5281C2A424193004269B4 /* HomeViewController.swift in Sources */,
 				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
+				577B03E62A4CC19B000352EA /* FinishPaymentViewController.swift in Sources */,
 				57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */,
 				57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */,
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,

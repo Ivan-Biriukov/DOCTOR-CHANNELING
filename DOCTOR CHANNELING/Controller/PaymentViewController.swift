@@ -6,6 +6,7 @@ class PaymentViewController: UIViewController {
     private let paymentsVariationsArray : [String] = ["Card Payment","Cash Payment"]
     private var confirmButtonStatus : Bool = false
     private var userPaymentInfo : UserCardInfo?
+    var descriptionChoises : [String] = ["Your Payment Is Successfuly", "The backup of your doctor's appointment was successful"]
     
     // MARK: - UI Elements
     
@@ -169,11 +170,11 @@ class PaymentViewController: UIViewController {
     
     @objc func payNowButtonTaped() {
         
-        if let cardNumber = cardNumberTextField.text, let expireDate = expiryDateTextField.text, let cvcCode = cvcTextField.text, let cardHolderName = cardholderNameTextField.text {
-            self.userPaymentInfo = UserCardInfo(cardNumber: Int(cardNumber)!, expireDate: expireDate, cvc: Int(cvcCode)!, cardHolder: cardHolderName)
-        }
+//        if let cardNumber = cardNumberTextField.text, let expireDate = expiryDateTextField.text, let cvcCode = cvcTextField.text, let cardHolderName = cardholderNameTextField.text {
+//            self.userPaymentInfo = UserCardInfo(cardNumber: Int(cardNumber)!, expireDate: expireDate, cvc: Int(cvcCode)!, cardHolder: cardHolderName)
+//        }
         
-        
+        self.navigationController?.pushViewController(FinishPaymentViewController(descriptionText: descriptionChoises[0]), animated: true)
 
         
     }
@@ -208,7 +209,7 @@ class PaymentViewController: UIViewController {
     }
     
     @objc func reserveButtonTaped() {
-        
+        self.navigationController?.pushViewController(FinishPaymentViewController(descriptionText: descriptionChoises[1]), animated: true)
     }
     
     // MARK: - Configure UI
