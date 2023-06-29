@@ -67,7 +67,7 @@ class ReusableUIButton: UIButton {
             setTitleColor(.white, for: .normal)
             titleLabel?.textAlignment = .center
             titleLabel?.font = .averiaRegular16()
-            heightAnchor.constraint(equalToConstant: 28.38).isActive = true
+            heightAnchor.constraint(equalToConstant: 28).isActive = true
             layer.cornerRadius = 10
             
         case .mic:

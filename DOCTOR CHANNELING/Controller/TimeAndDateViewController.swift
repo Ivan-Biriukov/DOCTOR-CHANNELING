@@ -45,6 +45,11 @@ class TimeAndDateViewController: UIViewController {
         configureCollection()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.tabBarController?.tabBar.isHidden = false
+    }
+    
     
     
     // MARK: - Custom Buttons Methods

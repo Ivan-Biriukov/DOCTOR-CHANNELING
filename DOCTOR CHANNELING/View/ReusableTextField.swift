@@ -44,7 +44,6 @@ class ReusableTextField: UITextField {
     
     private func configure() {
         
-        heightAnchor.constraint(equalToConstant: 60).isActive = true
         layer.cornerRadius = 10
         layer.borderWidth = 1
         layer.borderColor = CGColor(red: 211/256, green: 211/256, blue: 211/256, alpha: 1)
@@ -68,9 +67,11 @@ class ReusableTextField: UITextField {
         self.leftViewMode = .always
         
         if style == .email {
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
             keyboardType = .emailAddress
             clearButtonMode = .whileEditing
         } else if style == .password {
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
             rightStackView.addArrangedSubview(fieldEyeButton)
             rightStackView.addArrangedSubview(spaceContainer)
             isSecureTextEntry = true
@@ -78,12 +79,15 @@ class ReusableTextField: UITextField {
             clearButtonMode = .never
             rightViewMode = .always
         } else if style == .phoneNumber {
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
             clearButtonMode = .whileEditing
             keyboardType = .phonePad
         } else if style == .name {
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
             clearButtonMode = .whileEditing
             keyboardType = .namePhonePad
         } else if style == .searchField {
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
             tintColor = .textUnavalibleGray
             leftStackView.addArrangedSubview(leftSpaceContainer)
             leftStackView.addArrangedSubview(searchButton)

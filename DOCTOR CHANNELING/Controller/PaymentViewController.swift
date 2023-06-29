@@ -135,8 +135,7 @@ class PaymentViewController: UIViewController {
         btn.tintColor = UIColor.red
         btn.addTarget(self, action: #selector(confirmButtonPressed(_:)), for: .touchUpInside)
         btn.setTitle(nil, for: .normal)
-        btn.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        btn.widthAnchor.constraint(equalToConstant: 35).isActive = true
+        btn.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
         btn.imageView!.contentMode = .scaleToFill
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
