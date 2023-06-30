@@ -373,10 +373,13 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
+        
+        let cell = doctorsTableView.dequeueReusableCell(withIdentifier: K.CellsIds.doctorsTableViewCell, for: indexPath) as! DoctorCardTableViewCell
+        
         let currentLastItem = doctorsCardsManager.doctorsArray[indexPath.section]
         cell.data = currentLastItem
         cell.selectionStyle = .none
+        
         return cell
     }
 }

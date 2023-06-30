@@ -120,7 +120,7 @@ extension UIViewController {
         homeVC.title = ""
         let dateVC = UINavigationController(rootViewController: TimeAndDateViewController())
         dateVC.title = ""
-        let chatVC = UINavigationController(rootViewController: ChatViewController())
+        let chatVC = UINavigationController(rootViewController: ChatListViewController())
         chatVC.title = ""
         let settingsVC = UINavigationController(rootViewController: SettingsViewController())
         settingsVC.title = ""

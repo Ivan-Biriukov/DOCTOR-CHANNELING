@@ -1,6 +1,6 @@
 import UIKit
 
-class CategoryCollectionViewCell: UICollectionViewCell {
+final class CategoryCollectionViewCell: UICollectionViewCell {
     
     let categoryCellLabel : UILabel = {
         let lb = UILabel()
@@ -30,5 +30,4 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         categoryCellLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         
     }
-    
 }

@@ -39,9 +39,12 @@
 		57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */; };
 		57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */; };
 		57AF7FD72A4761C9002DC7A9 /* TimeAndDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */; };
-		57AF7FD92A476319002DC7A9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD82A476319002DC7A9 /* ChatViewController.swift */; };
+		57AF7FD92A476319002DC7A9 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD82A476319002DC7A9 /* ChatListViewController.swift */; };
 		57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */; };
 		57AF7FDF2A479CAF002DC7A9 /* DoctorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */; };
+		57B559EC2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */; };
+		57B559EF2A4E0FD800DEB005 /* ChatWithDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */; };
+		57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */; };
 		57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */; };
 		57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */; };
 		57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */; };
@@ -80,9 +83,12 @@
 		57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardTableViewCell.swift; sourceTree = "<group>"; };
 		57A87FD22A45B2FA00ADDF21 /* DoctorCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCardModel.swift; sourceTree = "<group>"; };
 		57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAndDateViewController.swift; sourceTree = "<group>"; };
-		57AF7FD82A476319002DC7A9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		57AF7FD82A476319002DC7A9 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListViewController.swift; sourceTree = "<group>"; };
+		57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithDoctorModel.swift; sourceTree = "<group>"; };
+		57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsContactsTableViewCell.swift; sourceTree = "<group>"; };
 		57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B55EC32A4395C600683EEC /* InfoCollectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionDataModel.swift; sourceTree = "<group>"; };
 		57B55EC62A43986400683EEC /* InfoCollectionModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionModelManager.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		578E379B2A406D7200BCD6C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				57B559ED2A4E0FBA00DEB005 /* ChatVCModels */,
 				57A87FD12A45B2CC00ADDF21 /* DoctorCardModel */,
 				57B55EC52A43962900683EEC /* InfoCollectionView Models */,
 				577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */,
@@ -136,7 +143,7 @@
 				57AF7FD62A4761C9002DC7A9 /* TimeAndDateViewController.swift */,
 				5780AB0B2A4A510E0029E51A /* PaymentViewController.swift */,
 				577B03E52A4CC19B000352EA /* FinishPaymentViewController.swift */,
-				57AF7FD82A476319002DC7A9 /* ChatViewController.swift */,
+				57AF7FD82A476319002DC7A9 /* ChatListViewController.swift */,
 				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
 			);
 			path = Controller;
@@ -228,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */,
+				57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -238,8 +246,17 @@
 				57B55EC12A435DFB00683EEC /* InfoCollectionViewCell.swift */,
 				579D09852A44EE120033C417 /* CategoryCollectionViewCell.swift */,
 				5780AB062A4A06360029E51A /* TimeSlotCollectionViewCell.swift */,
+				57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		57B559ED2A4E0FBA00DEB005 /* ChatVCModels */ = {
+			isa = PBXGroup;
+			children = (
+				57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */,
+			);
+			path = ChatVCModels;
 			sourceTree = "<group>";
 		};
 		57B55EC52A43962900683EEC /* InfoCollectionView Models */ = {
@@ -336,13 +353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */,
 				57A528182A420792004269B4 /* CreateAccountViewController.swift in Sources */,
 				57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */,
-				57AF7FD92A476319002DC7A9 /* ChatViewController.swift in Sources */,
+				57AF7FD92A476319002DC7A9 /* ChatListViewController.swift in Sources */,
 				57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */,
 				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,
 				57A778332A3FD29200FE43E4 /* AppDelegate.swift in Sources */,
 				578E37A72A40FD1C00BCD6C1 /* ReusableUIButton.swift in Sources */,
+				57B559EC2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift in Sources */,
 				57AF7FDF2A479CAF002DC7A9 /* DoctorListViewController.swift in Sources */,
 				57B5E9422A46343900B9EEFA /* DocotrsCardsManager.swift in Sources */,
 				57A5281C2A424193004269B4 /* HomeViewController.swift in Sources */,
@@ -362,6 +381,7 @@
 				57A778502A3FD4E100FE43E4 /* UIFont+ Extension.swift in Sources */,
 				57AF7FD72A4761C9002DC7A9 /* TimeAndDateViewController.swift in Sources */,
 				578E37AD2A41124700BCD6C1 /* ReusableTextField.swift in Sources */,
+				57B559EF2A4E0FD800DEB005 /* ChatWithDoctorModel.swift in Sources */,
 				57B55EC72A43986400683EEC /* InfoCollectionModelManager.swift in Sources */,
 				5780AB072A4A06360029E51A /* TimeSlotCollectionViewCell.swift in Sources */,
 				578E379F2A406DFA00BCD6C1 /* Constants.swift in Sources */,
