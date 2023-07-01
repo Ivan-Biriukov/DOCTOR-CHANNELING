@@ -1,10 +1,5 @@
-//
-//  AppDelegate.swift
-//  DOCTOR CHANNELING
-//
-//  Created by иван Бирюков on 19.06.2023.
-//
 import IQKeyboardManagerSwift
+import FirebaseCore
 import UIKit
 
 @main
@@ -15,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.shared.enable = true
+        
+        FirebaseApp.configure()
         
         return true
     }
