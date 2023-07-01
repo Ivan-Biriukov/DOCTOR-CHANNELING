@@ -43,7 +43,8 @@
 		57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */; };
 		57AF7FDF2A479CAF002DC7A9 /* DoctorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */; };
 		57B42B792A503B51008A9B65 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B42B782A503B50008A9B65 /* ChatViewController.swift */; };
-		57B42B7B2A504C25008A9B65 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B42B7A2A504C24008A9B65 /* MessageTableViewCell.swift */; };
+		57B42B7E2A50996C008A9B65 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B42B7C2A50996C008A9B65 /* MessageTableViewCell.swift */; };
+		57B42B7F2A50996C008A9B65 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57B42B7D2A50996C008A9B65 /* MessageTableViewCell.xib */; };
 		57B559EC2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */; };
 		57B559EF2A4E0FD800DEB005 /* ChatWithDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */; };
 		57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */; };
@@ -89,7 +90,8 @@
 		57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListViewController.swift; sourceTree = "<group>"; };
 		57B42B782A503B50008A9B65 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		57B42B7A2A504C24008A9B65 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		57B42B7C2A50996C008A9B65 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		57B42B7D2A50996C008A9B65 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithDoctorModel.swift; sourceTree = "<group>"; };
 		57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,7 +243,8 @@
 			children = (
 				57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */,
 				57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */,
-				57B42B7A2A504C24008A9B65 /* MessageTableViewCell.swift */,
+				57B42B7C2A50996C008A9B65 /* MessageTableViewCell.swift */,
+				57B42B7D2A50996C008A9B65 /* MessageTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A7784D2A3FD48500FE43E4 /* AveriaSansLibre-Regular.ttf in Resources */,
+				57B42B7F2A50996C008A9B65 /* MessageTableViewCell.xib in Resources */,
 				57A7783F2A3FD29900FE43E4 /* LaunchScreen.storyboard in Resources */,
 				57A7784B2A3FD47A00FE43E4 /* AveriaSansLibre-Light.ttf in Resources */,
 				57A778522A3FD64E00FE43E4 /* MontserratAlternates-SemiBold.ttf in Resources */,
@@ -362,7 +366,7 @@
 				57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */,
 				57A528182A420792004269B4 /* CreateAccountViewController.swift in Sources */,
 				57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */,
-				57B42B7B2A504C25008A9B65 /* MessageTableViewCell.swift in Sources */,
+				57B42B7E2A50996C008A9B65 /* MessageTableViewCell.swift in Sources */,
 				57AF7FD92A476319002DC7A9 /* ChatListViewController.swift in Sources */,
 				57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */,
 				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,

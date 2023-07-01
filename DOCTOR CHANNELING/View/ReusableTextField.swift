@@ -115,9 +115,14 @@ class ReusableTextField: UITextField {
             font = .averiaRegular16()
             keyboardType = .default
             clearButtonMode = .never
-            leftView = UIStackView(arrangedSubviews: [leftSpaceContainer, smilesButton])
+            leftStackView.addArrangedSubview(leftSpaceContainer)
+            leftStackView.addArrangedSubview(smilesButton)
+            leftStackView.addArrangedSubview(spaceBetweenSearchAndText)
+            leftView = leftStackView
             leftViewMode = .always
-            rightView = UIStackView(arrangedSubviews: [spaceContainer, cameraButton])
+            rightStackView.addArrangedSubview(cameraButton)
+            rightStackView.addArrangedSubview(spaceContainer)
+            rightView = rightStackView
             rightViewMode = .always
         }
     }

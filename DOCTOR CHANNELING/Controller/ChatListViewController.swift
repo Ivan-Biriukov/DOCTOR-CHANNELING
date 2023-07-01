@@ -70,16 +70,21 @@ class ChatListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         mainInterfaceNavBar(titleText: "Message", isThemeLight: true)
-        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
-        self.navigationController?.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.navigationBar.isHidden = false
+
         addSubviews()
         setupCollection()
         setupTableView()
         setupConstraints()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.topItem?.hidesBackButton = true
+        self.navigationController?.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -194,8 +199,8 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        self.navigationController?.present(ChatViewController(doctorName: "asfas"), animated: true)
+
+        self.navigationController?.pushViewController(ChatViewController(), animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
