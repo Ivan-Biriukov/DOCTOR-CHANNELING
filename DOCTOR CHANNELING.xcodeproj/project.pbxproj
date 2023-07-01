@@ -42,6 +42,8 @@
 		57AF7FD92A476319002DC7A9 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FD82A476319002DC7A9 /* ChatListViewController.swift */; };
 		57AF7FDB2A476351002DC7A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */; };
 		57AF7FDF2A479CAF002DC7A9 /* DoctorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */; };
+		57B42B792A503B51008A9B65 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B42B782A503B50008A9B65 /* ChatViewController.swift */; };
+		57B42B7B2A504C25008A9B65 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B42B7A2A504C24008A9B65 /* MessageTableViewCell.swift */; };
 		57B559EC2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */; };
 		57B559EF2A4E0FD800DEB005 /* ChatWithDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */; };
 		57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */; };
@@ -86,6 +88,8 @@
 		57AF7FD82A476319002DC7A9 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57AF7FDE2A479CAF002DC7A9 /* DoctorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorListViewController.swift; sourceTree = "<group>"; };
+		57B42B782A503B50008A9B65 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		57B42B7A2A504C24008A9B65 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithDoctorModel.swift; sourceTree = "<group>"; };
 		57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				577B03E52A4CC19B000352EA /* FinishPaymentViewController.swift */,
 				57AF7FD82A476319002DC7A9 /* ChatListViewController.swift */,
 				57AF7FDA2A476351002DC7A9 /* SettingsViewController.swift */,
+				57B42B782A503B50008A9B65 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			children = (
 				57A87FCF2A45B27D00ADDF21 /* DoctorCardTableViewCell.swift */,
 				57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */,
+				57B42B7A2A504C24008A9B65 /* MessageTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */,
 				57A528182A420792004269B4 /* CreateAccountViewController.swift in Sources */,
 				57B55EC42A4395C600683EEC /* InfoCollectionDataModel.swift in Sources */,
+				57B42B7B2A504C25008A9B65 /* MessageTableViewCell.swift in Sources */,
 				57AF7FD92A476319002DC7A9 /* ChatListViewController.swift in Sources */,
 				57A778372A3FD29200FE43E4 /* WellcomeViewController.swift in Sources */,
 				57B55EC22A435DFB00683EEC /* InfoCollectionViewCell.swift in Sources */,
@@ -366,6 +373,7 @@
 				57B5E9422A46343900B9EEFA /* DocotrsCardsManager.swift in Sources */,
 				57A5281C2A424193004269B4 /* HomeViewController.swift in Sources */,
 				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
+				57B42B792A503B51008A9B65 /* ChatViewController.swift in Sources */,
 				577B03E62A4CC19B000352EA /* FinishPaymentViewController.swift in Sources */,
 				57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */,
 				57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */,

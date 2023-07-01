@@ -178,16 +178,24 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let currentLastItem = dataArray[indexPath.section]
         cell.data = currentLastItem
-        if let unreadedMessages = currentLastItem.chatHistory?.unreadMessagesValue {
-            if unreadedMessages != 0 {
-                cell.unreadedMessageCount = unreadedMessages
-                cell.addUnreadMessageIndecator(amountOfUnreadedMessages: unreadedMessages)
-            }
+        
+        if currentLastItem.chatHistory?.unreadMessagesValue == 0 {
+            cell.unreadedMessageIndicatorView.isHidden = true
+            cell.unreadedMessageCountLabel.isHidden = true
+            cell.lastMessageTextlabel.textColor = .black
+        } else {
+            cell.unreadedMessageIndicatorView.isHidden = false
+            cell.unreadedMessageCountLabel.isHidden = false
+            cell.unreadedMessageCountLabel.text = "\(currentLastItem.chatHistory?.unreadMessagesValue ?? 0)"
+            cell.lastMessageTextlabel.textColor = .cellsBlueColor
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.navigationController?.present(ChatViewController(doctorName: "asfas"), animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

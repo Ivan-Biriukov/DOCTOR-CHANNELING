@@ -10,6 +10,10 @@ protocol FieldMicButtonDelegate {
     func micButtonTaped()
 }
 
+protocol ChatFieldButtonsDelegate {
+    func smilesButtonTaped()
+    func cameraButtonTaped()
+}
 import UIKit
 
 class ReusableTextField: UITextField {
@@ -31,6 +35,7 @@ class ReusableTextField: UITextField {
     var searchDelegate : FieldSearchButtonDelegate?
     var micDelegate : FieldMicButtonDelegate?
     private var isPasswordHidden : Bool = true
+    var chatsDelegates : ChatFieldButtonsDelegate?
     
     init(style: FieldStyle) {
         self.style = style
@@ -105,6 +110,15 @@ class ReusableTextField: UITextField {
             keyboardType = .numberPad
             clearButtonMode = .whileEditing
             tintColor = .black
+        } else if style == .chatTextInput {
+            heightAnchor.constraint(equalToConstant: 60).isActive = true
+            font = .averiaRegular16()
+            keyboardType = .default
+            clearButtonMode = .never
+            leftView = UIStackView(arrangedSubviews: [leftSpaceContainer, smilesButton])
+            leftViewMode = .always
+            rightView = UIStackView(arrangedSubviews: [spaceContainer, cameraButton])
+            rightViewMode = .always
         }
     }
     
@@ -178,6 +192,28 @@ class ReusableTextField: UITextField {
         return btn
     }()
     
+    private lazy var smilesButton : UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(systemName: "face.smiling"), for: .normal)
+        btn.tintColor = .black
+        btn.addTarget(self, action: #selector(smilesButtonTaped), for: .touchUpInside)
+        btn.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    private lazy var cameraButton : UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(systemName: "camera"), for: .normal)
+        btn.tintColor = .black
+        btn.addTarget(self, action: #selector(cameraButtonTaped), for: .touchUpInside)
+        btn.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     @objc func eyeButtonTaped() {
         buttonDelegate?.eyeButtonTaped()
         isPasswordHidden = !isPasswordHidden
@@ -196,5 +232,13 @@ class ReusableTextField: UITextField {
     
     @objc func micButtonTaped() {
         micDelegate?.micButtonTaped()
+    }
+    
+    @objc func smilesButtonTaped() {
+        chatsDelegates?.smilesButtonTaped()
+    }
+    
+    @objc func cameraButtonTaped() {
+        chatsDelegates?.cameraButtonTaped()
     }
 }

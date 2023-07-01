@@ -8,12 +8,9 @@ class ChatsContactsTableViewCell: UITableViewCell {
              self.doctorNameLabel.text = data?.chatHistory?.contactName
              self.lastMessageTimeLabel.text = data?.chatHistory?.lastMessageTime
              self.lastMessageTextlabel.text = data?.chatHistory?.lastMessage
-             self.unreadedMessageCountLabel.text = "\(self.data?.chatHistory?.unreadMessagesValue ?? 0)"
          }
      }
-    
-    var unreadedMessageCount : Int = 0
-    
+        
      let doctorImage : UIImageView = {
          let img = UIImageView()
          img.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
@@ -71,7 +68,6 @@ class ChatsContactsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
-        addUnreadMessageIndecator(amountOfUnreadedMessages: unreadedMessageCount)
     }
     
     required init?(coder: NSCoder) {
@@ -85,6 +81,8 @@ class ChatsContactsTableViewCell: UITableViewCell {
          contentView.addSubview(doctorNameLabel)
          contentView.addSubview(lastMessageTimeLabel)
          contentView.addSubview(lastMessageTextlabel)
+         contentView.addSubview(unreadedMessageIndicatorView)
+         unreadedMessageIndicatorView.addSubview(unreadedMessageCountLabel)
 
          NSLayoutConstraint.activate([
             doctorImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11.5),
@@ -96,20 +94,10 @@ class ChatsContactsTableViewCell: UITableViewCell {
             lastMessageTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
             lastMessageTextlabel.topAnchor.constraint(equalTo: doctorNameLabel.bottomAnchor, constant: 11),
             lastMessageTextlabel.leadingAnchor.constraint(equalTo: doctorImage.trailingAnchor, constant: 27),
+            unreadedMessageIndicatorView.topAnchor.constraint(equalTo: lastMessageTimeLabel.bottomAnchor, constant: 26),
+            unreadedMessageIndicatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
+            unreadedMessageCountLabel.centerXAnchor.constraint(equalTo: unreadedMessageIndicatorView.centerXAnchor),
+            unreadedMessageCountLabel.centerYAnchor.constraint(equalTo: unreadedMessageIndicatorView.centerYAnchor)
          ])
      }
-    
-    func addUnreadMessageIndecator(amountOfUnreadedMessages count: Int) {
-        if count != 0 {
-            contentView.addSubview(unreadedMessageIndicatorView)
-            unreadedMessageIndicatorView.addSubview(unreadedMessageCountLabel)
-            self.lastMessageTextlabel.textColor = .cellsBlueColor
-            NSLayoutConstraint.activate([
-                unreadedMessageIndicatorView.topAnchor.constraint(equalTo: lastMessageTimeLabel.bottomAnchor, constant: 26),
-                unreadedMessageIndicatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -21),
-                unreadedMessageCountLabel.centerXAnchor.constraint(equalTo: unreadedMessageIndicatorView.centerXAnchor),
-                unreadedMessageCountLabel.centerYAnchor.constraint(equalTo: unreadedMessageIndicatorView.centerYAnchor)
-            ])
-        }
-    }
 }
