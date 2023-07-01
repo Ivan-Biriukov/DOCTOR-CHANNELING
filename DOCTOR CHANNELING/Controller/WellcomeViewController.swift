@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeButtonDelegate {
     
@@ -163,7 +164,18 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     }
     
     @objc func signInButtonTaped() {
-        present(setupMainInterfaceNavController(), animated: true)
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                if let e = error {
+                    let alert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Got It", style: .cancel)
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                } else {
+                    self.present(self.setupMainInterfaceNavController(), animated: true)
+                }
+            }
+        }
     }
     
     @objc func facebookButtonTaped() {
