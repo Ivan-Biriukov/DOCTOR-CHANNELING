@@ -1,19 +1,22 @@
 import IQKeyboardManagerSwift
 import FirebaseCore
 import UIKit
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         IQKeyboardManager.shared.enable = true
-        
         FirebaseApp.configure()
-        
         return true
+    }
+    
+    // MARK: - GIDSignIn instance Method
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        
+      return GIDSignIn.sharedInstance.handle(url)
     }
 
     // MARK: UISceneSession Lifecycle
