@@ -61,6 +61,7 @@
 		57B42BA62A51E46E008A9B65 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 57B42BA52A51E46E008A9B65 /* GoogleSignIn */; };
 		57B42BA82A51E46E008A9B65 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57B42BA72A51E46E008A9B65 /* GoogleSignInSwift */; };
 		57B42BAA2A51E4F6008A9B65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57B42BA92A51E4F6008A9B65 /* GoogleService-Info.plist */; };
+		57B42BAC2A523974008A9B65 /* SocialButtonLogInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B42BAB2A523974008A9B65 /* SocialButtonLogInManager.swift */; };
 		57B559EC2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */; };
 		57B559EF2A4E0FD800DEB005 /* ChatWithDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */; };
 		57B559F12A4E353B00DEB005 /* ChatsContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */; };
@@ -111,6 +112,7 @@
 		57B42BA02A51B0C9008A9B65 /* SettingsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataModel.swift; sourceTree = "<group>"; };
 		57B42BA22A51B139008A9B65 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		57B42BA92A51E4F6008A9B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		57B42BAB2A523974008A9B65 /* SocialButtonLogInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButtonLogInManager.swift; sourceTree = "<group>"; };
 		57B559EB2A4DD57B00DEB005 /* ActiveNowChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveNowChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		57B559EE2A4E0FD800DEB005 /* ChatWithDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWithDoctorModel.swift; sourceTree = "<group>"; };
 		57B559F02A4E353B00DEB005 /* ChatsContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				57B55EC52A43962900683EEC /* InfoCollectionView Models */,
 				577B03DB2A4C587B000352EA /* UserProfileDataModel.swift */,
 				57B42BA02A51B0C9008A9B65 /* SettingsDataModel.swift */,
+				57B42BAB2A523974008A9B65 /* SocialButtonLogInManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				578E37A12A40746400BCD6C1 /* UIViewController+ Extension.swift in Sources */,
 				57B42B792A503B51008A9B65 /* ChatViewController.swift in Sources */,
 				577B03E62A4CC19B000352EA /* FinishPaymentViewController.swift in Sources */,
+				57B42BAC2A523974008A9B65 /* SocialButtonLogInManager.swift in Sources */,
 				57A87FD02A45B27D00ADDF21 /* DoctorCardTableViewCell.swift in Sources */,
 				57A87FD32A45B2FA00ADDF21 /* DoctorCardModel.swift in Sources */,
 				57A778352A3FD29200FE43E4 /* SceneDelegate.swift in Sources */,

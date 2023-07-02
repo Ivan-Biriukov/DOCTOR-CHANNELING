@@ -125,7 +125,7 @@ class ChatListViewController: UIViewController {
             messagesTableView.topAnchor.constraint(equalTo: messagesTitle.bottomAnchor, constant: 36),
             messagesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 26.72),
             messagesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26.72),
-            messagesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35),
+            messagesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -85),
         ])
     }
 

@@ -107,7 +107,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     @objc func googleButtonTaped() {
-        
+        SocialButtonManager.logInUsingGoogle(currentVC: self)
     }
     
     @objc func signInButtonTaped() {
