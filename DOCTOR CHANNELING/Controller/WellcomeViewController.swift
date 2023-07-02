@@ -158,8 +158,31 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     
     @objc func recoverPasswordTaped() {
         recoverPasswordButton.alpha = 0.5
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.recoverPasswordButton.alpha = 1.0
+            let alert = UIAlertController(title: "Recover Password", message: "Please enter Your's account email andres.We will send an e-mail to reset password.", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.placeholder = "Account e-mail"
+            }
+            let action = UIAlertAction(title: "Send an e-mail", style: .default) {action in
+                if let text = alert.textFields?[0].text {
+                    Auth.auth().sendPasswordReset(withEmail: text.lowercased()) { error in
+                        if let e = error {
+                            let errorAlert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
+                            let errorAlertAction = UIAlertAction(title: "Retry", style: .cancel)
+                            errorAlert.addAction(errorAlertAction)
+                            self.present(errorAlert, animated: true)
+                        } else {
+                            let succedAllert = UIAlertController(title: "Succed", message: "Password recovery link has been send to your email!", preferredStyle: .alert)
+                            let succedAction = UIAlertAction(title: "Close", style: .cancel)
+                            succedAllert.addAction(succedAction)
+                            self.present(succedAllert, animated: true)
+                        }
+                    }
+                }
+            }
+            alert.addAction(action)
+            self.present(alert, animated: true)
         }
     }
     
