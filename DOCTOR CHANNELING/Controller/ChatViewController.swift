@@ -135,7 +135,6 @@ class ChatViewController: UIViewController {
             bottomLineStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -110),
             bottomLineStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             bottomLineStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            
         ])
     }
 

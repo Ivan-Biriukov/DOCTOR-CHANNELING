@@ -1,7 +1,11 @@
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
+import FirebaseFirestore
 
 class CreateAccountViewController: UIViewController {
+    
+    let db = Firestore.firestore()
 
     // MARK: - UI Elements
     
@@ -96,6 +100,7 @@ class CreateAccountViewController: UIViewController {
                     alert.addAction(action)
                     self.present(alert, animated: true)
                 } else {
+                    self.saveUserDataFromFieldsRegister()
                     self.present(self.setupMainInterfaceNavController(), animated: true)
                 }
             }
@@ -107,6 +112,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     @objc func googleButtonTaped() {
+        saveUserDataFromSocialLogin()
         SocialButtonManager.logInUsingGoogle(currentVC: self)
     }
     
@@ -180,4 +186,35 @@ extension CreateAccountViewController: FieldeyeButtonDelegate , UITextFieldDeleg
     
     func eyeButtonTaped() {}
     
+}
+
+// MARK: - FireBase Save User Data
+
+extension CreateAccountViewController {
+    
+    private func saveUserDataFromFieldsRegister() {
+        if let currentUser = Auth.auth().currentUser, let password = passwordTextField.text, let userName = nameTextField.text, let phoneNumber = phoneTextField.text, let userEmail = emailTextField.text {
+            
+            db.collection("users").addDocument(data: [
+                "userID" : currentUser.uid,
+                "userName" : userName,
+                "userEmail" : userEmail,
+                "userPassword" : password,
+                "userPhoneNumber" : phoneNumber
+            ])
+        }
+    }
+    
+    
+    private func saveUserDataFromSocialLogin() {
+        if let currentUser = Auth.auth().currentUser, let userName =  currentUser.displayName, let userEmail = currentUser.email, let phoneNumber = currentUser.phoneNumber, let userAvatar = currentUser.photoURL {
+            db.collection("users").addDocument(data: [
+                "userID" : currentUser.providerID,
+                "userName" : userName,
+                "userEmail" : userEmail,
+                "userPassword" : nil,
+                "userPhoneNumber" : phoneNumber,
+            ])
+        }
+    }
 }

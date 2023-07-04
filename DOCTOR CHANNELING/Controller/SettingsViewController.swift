@@ -1,8 +1,11 @@
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 
 class SettingsViewController: UIViewController {
+    
+    let db = Firestore.firestore()
     
     private let dataArray : [SettingsDataModel] = [
         .init(image: UIImage(named: K.ButtonsImgs.ProfileButtons.history)!, title: "History", rightButtonNeeded: true),
@@ -22,6 +25,7 @@ class SettingsViewController: UIViewController {
         avatar.heightAnchor.constraint(equalToConstant: 130).isActive = true
         avatar.layer.cornerRadius = 65
         avatar.contentMode = .scaleToFill
+        avatar.image = UIImage(named: "user")
         avatar.translatesAutoresizingMaskIntoConstraints = false
         return avatar
     }()
@@ -45,6 +49,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadUserInfoData()
         view.backgroundColor = .systemBackground
         mainInterfaceNavBar(titleText: "Profile", isThemeLight: true)
         self.navigationController?.navigationBar.topItem?.backBarButtonItem?.isHidden = true
@@ -131,6 +136,29 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
             self.present(logoutAlert, animated: true)
         }
     }
+}
+
+// MARK: - Load Data from FireBase
+
+extension SettingsViewController {
     
+    private func loadUserInfoData() {
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let snapshotDocuments = querySnapshot?.documents {
+                    for doc in snapshotDocuments {
+                        let data = doc.data()
+                        print(doc.documentID)
+                            let usernName = data["userName"] as? String
+                        self.userNameLabel.text = usernName?.capitalized
+
+                    }
+                }
+            }
+        }
+    }
     
 }
+
