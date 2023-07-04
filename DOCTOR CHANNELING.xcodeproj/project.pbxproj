@@ -21,6 +21,7 @@
 		578E37A92A41052700BCD6C1 /* MontserratAlternates-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 578E37A82A41052600BCD6C1 /* MontserratAlternates-Bold.ttf */; };
 		578E37AB2A410D3D00BCD6C1 /* UITextField+ Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37AA2A410D3D00BCD6C1 /* UITextField+ Extension.swift */; };
 		578E37AD2A41124700BCD6C1 /* ReusableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E37AC2A41124600BCD6C1 /* ReusableTextField.swift */; };
+		579444CF2A54A55E0064A5D2 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 579444CE2A54A55E0064A5D2 /* AlamofireImage */; };
 		579D09862A44EE120033C417 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579D09852A44EE120033C417 /* CategoryCollectionViewCell.swift */; };
 		57A528182A420792004269B4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A528172A420792004269B4 /* CreateAccountViewController.swift */; };
 		57A5281A2A4208EF004269B4 /* TextFieldsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A528192A4208EF004269B4 /* TextFieldsLabel.swift */; };
@@ -131,6 +132,7 @@
 				57B42B922A50C373008A9B65 /* FirebaseInstallations in Frameworks */,
 				57B42B8A2A50C373008A9B65 /* FirebaseDatabaseSwift in Frameworks */,
 				57B42BA82A51E46E008A9B65 /* GoogleSignInSwift in Frameworks */,
+				579444CF2A54A55E0064A5D2 /* AlamofireImage in Frameworks */,
 				57B42B882A50C373008A9B65 /* FirebaseDatabase in Frameworks */,
 				577B03E12A4C8AD7000352EA /* Veil in Frameworks */,
 				57B42BA62A51E46E008A9B65 /* GoogleSignIn in Frameworks */,
@@ -348,6 +350,7 @@
 				57B42B972A50C373008A9B65 /* FirebaseStorageCombine-Community */,
 				57B42BA52A51E46E008A9B65 /* GoogleSignIn */,
 				57B42BA72A51E46E008A9B65 /* GoogleSignInSwift */,
+				579444CE2A54A55E0064A5D2 /* AlamofireImage */,
 			);
 			productName = "DOCTOR CHANNELING";
 			productReference = 57A7782F2A3FD29200FE43E4 /* DOCTOR CHANNELING.app */;
@@ -383,6 +386,7 @@
 				577B03E22A4CBB0C000352EA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				57B42B822A50C373008A9B65 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				57B42BA42A51E46D008A9B65 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				579444CD2A54A55E0064A5D2 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 57A778302A3FD29200FE43E4 /* Products */;
 			projectDirPath = "";
@@ -693,6 +697,14 @@
 				minimumVersion = 2.8.2;
 			};
 		};
+		579444CD2A54A55E0064A5D2 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 		57B42B822A50C373008A9B65 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -726,6 +738,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5780AB082A4A45070029E51A /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		579444CE2A54A55E0064A5D2 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 579444CD2A54A55E0064A5D2 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 		57B42B832A50C373008A9B65 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -112,8 +112,8 @@ class CreateAccountViewController: UIViewController {
     }
     
     @objc func googleButtonTaped() {
-        saveUserDataFromSocialLogin()
-        SocialButtonManager.logInUsingGoogle(currentVC: self)
+    //    saveUserDataFromSocialLogin()
+        SocialButtonManager.logInUsingGoogle(currentVC: self, db: self.db)
     }
     
     @objc func signInButtonTaped() {
@@ -195,26 +195,27 @@ extension CreateAccountViewController {
     private func saveUserDataFromFieldsRegister() {
         if let currentUser = Auth.auth().currentUser, let password = passwordTextField.text, let userName = nameTextField.text, let phoneNumber = phoneTextField.text, let userEmail = emailTextField.text {
             
-            db.collection("users").addDocument(data: [
+            db.collection("users: \(currentUser.uid)").addDocument(data: [
                 "userID" : currentUser.uid,
                 "userName" : userName,
                 "userEmail" : userEmail,
                 "userPassword" : password,
-                "userPhoneNumber" : phoneNumber
-            ])
-        }
-    }
-    
-    
-    private func saveUserDataFromSocialLogin() {
-        if let currentUser = Auth.auth().currentUser, let userName =  currentUser.displayName, let userEmail = currentUser.email, let phoneNumber = currentUser.phoneNumber, let userAvatar = currentUser.photoURL {
-            db.collection("users").addDocument(data: [
-                "userID" : currentUser.providerID,
-                "userName" : userName,
-                "userEmail" : userEmail,
-                "userPassword" : nil,
                 "userPhoneNumber" : phoneNumber,
+                "userAvatarURL" : URL(string: "https://www.flaticon.com/free-icon/who_5726297?term=user+avatar&page=4&position=45&origin=tag&related_id=5726297")!.absoluteString
             ])
         }
     }
+    
+    
+//    private func saveUserDataFromSocialLogin() {
+//        if let currentUser = Auth.auth().currentUser, let userName =  currentUser.displayName, let userEmail = currentUser.email, let phoneNumber = currentUser.phoneNumber, let userAvatar = currentUser.photoURL {
+//            db.collection("users").addDocument(data: [
+//                "userID" : currentUser.providerID,
+//                "userName" : userName,
+//                "userEmail" : userEmail,
+//                "userPassword" : nil,
+//                "userPhoneNumber" : phoneNumber,
+//            ])
+//        }
+//    }
 }

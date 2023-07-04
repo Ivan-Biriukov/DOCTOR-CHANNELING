@@ -1,6 +1,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import Alamofire
+import AlamofireImage
 
 
 class SettingsViewController: UIViewController {
@@ -143,17 +145,29 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
 extension SettingsViewController {
     
     private func loadUserInfoData() {
-        db.collection("users").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                if let snapshotDocuments = querySnapshot?.documents {
-                    for doc in snapshotDocuments {
-                        let data = doc.data()
-                        print(doc.documentID)
+        if let currentUser = Auth.auth().currentUser?.uid{
+            db.collection("users: \(currentUser)").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        for doc in snapshotDocuments {
+                            let data = doc.data()
+                            print(doc.documentID)
                             let usernName = data["userName"] as? String
-                        self.userNameLabel.text = usernName?.capitalized
-
+                            self.userNameLabel.text = usernName?.capitalized
+                            
+                            if let avatarURL = data["userAvatarURL"] as? String {
+                                AF.request(avatarURL).responseImage { response in
+                                    if case .success(let image) = response.result {
+                                        let radius: CGFloat = 50.0
+                                        let roundedImage = image.af.imageRounded(withCornerRadius: radius)
+                                        let circularImage = image.af.imageRoundedIntoCircle()
+                                        self.userAvatar.image = circularImage
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

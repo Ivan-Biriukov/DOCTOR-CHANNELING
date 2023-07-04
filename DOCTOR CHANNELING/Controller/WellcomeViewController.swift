@@ -2,8 +2,11 @@ import UIKit
 import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
+import FirebaseFirestore
 
 class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeButtonDelegate {
+    
+    let db = Firestore.firestore()
     
     // MARK: - UI Elements
     
@@ -208,7 +211,7 @@ class WellcomeViewController: UIViewController, UITextFieldDelegate, FieldeyeBut
     }
     
     @objc func googleButtonTaped() {
-        SocialButtonManager.logInUsingGoogle(currentVC: self)
+        SocialButtonManager.logInUsingGoogle(currentVC: self, db: self.db)
     }
     
     @objc func signUpButtonTaped() {
